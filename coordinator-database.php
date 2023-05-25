@@ -13,17 +13,17 @@ $name= $_POST['name'];
 $pass=$_POST['password'];
 $email= $_POST['email'];
 
-$q = "SELECT * FROM signin WHERE name = '$name' && password = '$pass' && email = '$email'";
+$q = "SELECT * FROM coordinator WHERE name = '$name' && password = '$pass' && email = '$email'";
 $result= mysqli_query($con, $q);
 $num = mysqli_num_rows ($result);
 
 if($num==1){
     echo"duplicate data";
 }else{
-    $qy="INSERT INTO signin(name, password, email) VALUES('$name', '$pass', '$email')";
+    $qy="INSERT INTO coordinator(name, password, email) VALUES('$name', '$pass', '$email')";
     mysqli_query($con, $qy);
 
-    header("Location: loading-acc-successful.html");
+    // header("Location: loading-acc-successful.html");
     // header("Location: noc-successful.html");
     exit;
 }

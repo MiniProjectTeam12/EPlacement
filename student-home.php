@@ -1,3 +1,10 @@
+<?php
+
+session_start();
+// if(!isset($_SESSION['username'])){
+//     header('location: slogin.php');
+// }
+?> 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,6 +70,9 @@
               <i class="fa fa-linkedin" aria-hidden="true"
                 style="background-color: blue;padding: 5px;border-radius: 30%;"></i>
             </a>
+          </li>
+          <li>
+            <a href="logout.php"><button>LOGOUT</button></a>
           </li>
         </ul>
         

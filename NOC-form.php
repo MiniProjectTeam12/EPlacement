@@ -7,28 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="notification.css">
-    <link rel="stylesheet" href="utility.css">
     <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="utility.css">
     <link rel="shortcut icon" href="./assets/images/bvec.jpg" type="image/x-icon">
-    <title>Document</title>
+    <title>BVEC Training and Placement</title>
 </head>
-<!-- 
-<body>
-    <div class="col-lg-6">
-        <h2> Signin form </h2>
-        <form action="registration.php" method="post">
-            <div class="form-group">
-                <label> username </label>
-                <input type="text" name="name" class="form-control">
-            </div>
-            <div class="form-group">
-                <label> Password </label>
-                <input type="Password" name="password" class="form-control">
-            </div>
-            <button class="btn btn-primary" type="submit"> Login </button>
-        </form>
-    </div>
-</body> -->
 
 <body>
     <!-- All href will open in new tab -->
@@ -58,11 +41,6 @@
                             <ul><a href="#">Facilities</a></ul>
                         </div>
                     </li>
-                    <li><a href="JavaScript:void(0)">Co-ordinator <i class="fas fa-caret-down"></i></a>
-                      <div class="dropdown_menu"> 
-                        <ul><a href="slogin.html">Co-ordinator Login</a></ul> 
-                      </div>
-                    </li>
                     <li><a href="JavaScript:void(0)">Alumni <i class="fas fa-caret-down"></i></a>
                         <div class="dropdown_menu">
                             <ul><a href="#"><i class="fa-solid fa-right-to-bracket"></i>&nbsp Alumni Login</a></ul>
@@ -83,49 +61,60 @@
         </header>
         <br><br><br><br>
         <!-- Everything must be done under section class, add class or id  -->
-        <section id="create-account">
-            <div class="container-form">
-              <div class="login-left">
-                  <div class="login-header"><br>
-                  <h1>Welcome to T&P Cell BVEC</h1>
-                  <p class="error-msg">Account already exists. Please Login.</p><br>
-              </div>
-              
-              <form class="login-form" id="form" action="registration.php" method="post">
-                  
-                  <div class="signup-form-content">
-                      <div class="input-control">
-                          <label>Full Name</label>
-                          <input type="text" name="name" id="username" >
-                          <div class="error"></div>
-                      </div>
-                      <div class="input-control">
-                          <label>Enter Email</label>
-                          <input type="email" name="" id="email" >
-                          <div class="error"></div>
-                      </div>
-                      <div class="input-control" id="pass">
-                          <label>Enter Password</label>
-                          <input type="password" name="password" id="password" >
-                          <div class="error"></div>
-                      </div>
-                      <div class="input-control" id="pass">
-                          <label for="password">Confirm Password</label>
-                          <input type="password" id="password2" name="confirm-password">
-                          <div class="error"></div>
-                      </div>
-                      <button class="btn-sign-up1" type="submit" id="submit">Sign up</button>
+            <section class="create-account-NOC">
+                <div class="container-form">
+                  <div class="login-left">
+                      <div class="login-header"><br>
+                      <h1>Apply For NOC</h1>
+                      <p class="error-msg">Account already exists. Please Login.</p><br>
                   </div>
-                 
-              </form>
-              <br>
-              <h4>Already have an account?</h4><br>
-              <div class="sign-in">
-                 <a href="slogin.html"> <button class="btn-sign-in1">Sign In</button></a>
+                  
+                  <form class="login-form" id="form" action="noc-database.php" method="post">
+                      
+                      <div class="signup-form-content">
+                          <div class="input-control">
+                              <label>Full Name</label>
+                              <input type="text" name="name" id="name" required>
+                              <div class="error"></div>
+                          </div>
+                          <div class="input-control">
+                              <label>Email</label>
+                              <input type="email" name="email" id="email" required>
+                             
+                          </div>
+                          <div class="input-control">
+                            <label>Phone No.</label>
+                            <input type="tel" name="phoneno" pattern="[0-9]{10}" required>
+                        </div>
+                          <div class="input-control">
+                              <label>Semester</label>
+                              <input type="text" name="semester" required>
+                              <div class="error"></div>
+                          </div>
+                          <div class="input-control">
+                              <label>Roll No.</label>
+                              <input type="text" name="rollno" required>
+                              <div class="error"></div>
+                          </div>
+                          <div class="input-control">
+                            <label>Department</label>
+                            <input type="text" name="department" required>
+                            <div class="error"></div>
+                        </div>
+                        <div class="input-control">
+                            <label>Industry / Institution</label>
+                            <input type="text" name="industry" required>
+                            <div class="error"></div>
+                        </div>
+                          <button class="btn-sign-up-NOC" type="submit" id="submit">SUBMIT</button>
+                      </div>
+                     
+                  </form>
+                  <br>
               </div>
-          </div>
-            </div>
-          </section>
+                </div>
+              </section>
+        </section>
         <br>
 
 
@@ -145,7 +134,7 @@
 
 
         <!-- Javascript section -->
-        <!-- <script src="https://kit.fontawesome.com/c5009e06c9.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/c5009e06c9.js" crossorigin="anonymous"></script>
         <script src="script.js"></script>
         <script>
             const marquee = document.getElementById('myMarquee');
@@ -158,7 +147,7 @@
                 marquee.start();
               });
             }
-          </script> -->
+          </script>
 </body>
 
 </html>
