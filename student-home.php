@@ -1,3 +1,10 @@
+<?php
+
+session_start();
+// if(!isset($_SESSION['username'])){
+//     header('location: slogin.php');
+// }
+?> 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,6 +70,9 @@
               <i class="fa fa-linkedin" aria-hidden="true"
                 style="background-color: blue;padding: 5px;border-radius: 30%;"></i>
             </a>
+          </li>
+          <li>
+            <a href="logout.php"><button>LOGOUT</button></a>
           </li>
         </ul>
         
@@ -220,12 +230,13 @@
       <div class="grid  reveal">
         <div class="grid-item-placement-placement-reports">
           <div class="card">
-            <img src="./assets/images/placement reports.png" class="card-img">
+            <img src="./assets/images/placement reports.png" alt="" class="card-img">
             <div class="card-content">
               <h4 class="card-header">PLACEMENT REPORTS</h4>
               <p class="card-text">
-                All the records of students getting placed along with company 							name, package details etc. will be displayed. 
-.
+                An internship NOC (No Objection Certificate) application form is a document that interns can use to
+                request permission from their academic institution or employer to pursue an internship with another
+                organization.
               </p>
               <a href="record.html" target="_blank"><button class="card-btn">
                   Visit <span>&rarr;</span>
