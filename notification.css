@@ -7,7 +7,9 @@
 #navbar{
     background: rgba(0, 0, 0, 0.9);
 }
-
+.PlcmntRcrd{
+    background:  #87CEEB;
+}
 .notices{
     height: 70vh;
 }

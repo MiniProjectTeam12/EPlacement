@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,700;1,700&display=swap');
+
+#navbar{
+    background: #000;
+}
+.AuthorInfo img{
+    border-radius: 50%;
+}
+#postContent{
+    margin: 1%;
+    font-size: 1.1rem;
+    text-align: justify;
+    font-weight: 600; 
+}
+
+/* for replies */
+ 
+form {
+    display: flex;
+    align-items: flex-start;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 10px;
+  }
+  
+  .comment-input {
+    flex: 1;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 14px;
+  }
+  
+  .comment-button {
+    margin-left: 10px;
+  }
+  
+  button[type="submit"] {
+    padding: 8px 16px;
+    background-color: #1a73e8;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0c5fc4;
+}
+  
+  .postContent{
+    font-family: 'Lobster Two', cursive;
+  }
+
+  #otherComments{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1.8rem;
+  }
+/* ended replies */

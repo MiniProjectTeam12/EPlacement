@@ -1,0 +1,70 @@
+table {
+    border-collapse: collapse;
+  }
+  
+  th,
+  td {
+    font-size: small;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+#navbar{
+    background: #000;
+}
+#discussionBody{
+    padding: 1vw; 
+    box-shadow: 0 5px 10px #000;
+    display: flex;
+    justify-content: space-between;
+}
+#forumHeader{
+    display: flex;
+    justify-content: space-around;
+}
+#allPostStats{
+    display: flex;
+    justify-content: space-between;
+}
+.topicInfo{
+   
+}
+.postTitle{
+    color: #b330a8;
+}
+.postCategory{
+    color: #fc452d;
+}
+.AuthorInfo{
+    display: flex;
+    width: 20vw;
+    justify-content: space-evenly;
+    margin: 5px;
+    align-items: center;  
+    font-size: 14px;
+    color: #400ff1;
+}
+.AuthorInfo img{
+    border-radius: 50%;
+}
+.post-date {
+    display: inline-block;
+    background-color: #58d44d;
+    padding: 3px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #b330a8;
+  }
+  
+  .day {
+    font-weight: bold;
+  }
+  
+  .month {
+    text-transform: uppercase;
+  }
+  
+  .year {
+    opacity: 0.7;
+  }
+  
