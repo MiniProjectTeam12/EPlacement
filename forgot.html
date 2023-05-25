@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form.css">
+    <title>Forgot Password</title>
+</head>
+<body id="forgot-password-body">
+    <div class="forgot-password-form">
+        <h2>Forgot Password</h2>
+        <p class="valid-input">Verification code sent to your email!</p>
+        <p class="error-msg">Invalid Input!</p>
+        <form>
+          <div class="input-control" id="pass">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                </div>
+                <div>
+                <button type="btn-getcode" class="btn-getcode">Get Code</button>
+                <div class="input-control" id="pass">
+                    <label for="code">Verification Code</label>
+                    <input type="text" id="vcode" required>
+                </div>
+        
+        </form>
+      </div>      
+      <a href="reset.html"><button type="btn-submit" class="btn-submit">Submit</button></a>
+</body>
+<script src="forgot.js"></script>
+</html>
