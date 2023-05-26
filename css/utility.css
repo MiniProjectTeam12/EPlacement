@@ -9,6 +9,10 @@ h1 {
     text-align: center;
 } 
 
+.flex{
+    display: flex; 
+    align-items: center;
+}
 .flex_btwn{
     display: flex;
     align-items: center;
@@ -31,8 +35,28 @@ h1 {
     margin: 0 1.5rem;
 }
 
-
-
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #ffffff;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: #45a049;
+  }
+  
+  .btn:active {
+    background-color: #3e8e41;
+  }
+.round{
+  border-radius: 50%;
+}  
 #show {
     display: none;
     font-size: xx-large;

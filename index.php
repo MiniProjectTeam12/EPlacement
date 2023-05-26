@@ -5,16 +5,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="utility.css">
-  <link rel="shortcut icon" href="./assets/images/bvec.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/utility.css">
+  <link rel="shortcut icon" href="assets/images/bvec.jpg" type="image/x-icon">
   <title>BVEC Training and Placement</title>
 </head>
 
 <body>
   <!-- All href will open in new tab -->
   <!-- <base href="" target="_blank"> -->
-
   <div id="show"><i class="fas fa-solid fa-bars basic_mrgn" id="s" onclick="show()"></i></div>
   <div class="moving-clouds"></div>
   <div class="container">
@@ -22,22 +21,29 @@
     <header class="hero">
       <nav id="navbar">
         <ul id="ul">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="notification.html">Notification</a></li>
-          <li><a href="internship.html">Internship</a></li>
+          <li><a href="index.php">Home</a></li>
+          <li><a href="notification.php">Notification</a></li>
+          <li><a href="internship.php">Internship</a></li>
           <li><a href="JavaScript:void(0)">For Students <i class="fas fa-caret-down"></i></a>
             <div class="dropdown_menu">
-              <ul><a href="#"><i class="fa-solid fa-right-to-bracket"></i>&nbsp Student Login</a></ul>
+              <ul><a href="users/students/login.php"><i class="fa-solid fa-right-to-bracket"></i>&nbsp Student Login</a></ul>
               <ul><a href="#"><i class="fa-regular fa-message"></i>&nbsp Forum</a></ul>
-              <ul><a href="#">Resume Generator</a></ul>
-              <ul><a href="#">Placement Policies</a></ul>
+              <ul><a href="https://www.overleaf.com/8646338143yhgpzszvpmxv" target="_blank">Resume Generator</a></ul>
+              <ul><a href="NOC-form.php">NOC Apply</a></ul>
+              <ul><a href="https://drive.google.com/file/d/15CY83lWnHaGVrk8RpDufH_iYzoJfI-ME/view?usp=share_link " target="_blank">Placement Policies</a></ul>
             </div>
           </li>
           <li><a href="JavaScript:void(0)">For Recruiters <i class="fas fa-caret-down"></i></a>
-            <div class="dropdown_menu"> 
-              <ul><a href="record.html">Placement Record</a></ul> 
+            <div class="dropdown_menu">
+              <ul><a href="placementrecord.php">Placement Record</a></ul>
               <ul><a href="#reach_us">Reaching BVEC</a></ul>
               <ul><a href="#">Facilities</a></ul>
+              <ul><a href="https://drive.google.com/file/d/15CY83lWnHaGVrk8RpDufH_iYzoJfI-ME/view?usp=share_link " target="_blank">Placement Policies</a></ul>
+            </div>
+          </li>
+          <li><a href="JavaScript:void(0)">Co-ordinator <i class="fas fa-caret-down"></i></a>
+            <div class="dropdown_menu">
+              <ul><a href="coordinator.php">Co-ordinator Login</a></ul>
             </div>
           </li>
           <li><a href="JavaScript:void(0)">Alumni <i class="fas fa-caret-down"></i></a>
@@ -47,17 +53,21 @@
             </div>
           </li>
           <li><a href="JavaScript:void(0)">Contact Us</i></a>
-             
+            <?php
+            session_start();
+            if (isset($_SESSION['email'])) {
+            ?>
+          <li><a href="users/dashboard/student.php" id="dashboard">Dashboard</i></a>
+          <?php
+            };
+          ?>
           </li>
-          <li><a
-              href="https://www.linkedin.com/company/training-and-placement-cell-barak-valley-engineering-college/about/"
-              target="_blank">
-              <i class="fa fa-linkedin" aria-hidden="true"
-                style="background-color: blue;padding: 5px;border-radius: 30%;"></i>
+          <li><a href="https://www.linkedin.com/company/training-and-placement-cell-barak-valley-engineering-college/about/" target="_blank">
+              <i class="fa fa-linkedin" aria-hidden="true" style="background-color: blue;padding: 5px;border-radius: 30%;"></i>
             </a>
           </li>
         </ul>
-        
+
       </nav>
     </header>
 
@@ -120,7 +130,7 @@
                 Brochures contains information about the programs, campus life, placements, and admissions process to
                 prospective students. you can visit the link and download the college brochure.
               </p>
-              <a href=#" target="_blank"><button class="card-btn">
+              <a href="https://drive.google.com/file/d/1wz1mrDCJLqgNO32ZY6q4UAEY3BRKD006/view?usp=sharing" target="_blank"><button class="card-btn">
                   Visit <span>&rarr;</span>
                 </button>
               </a>
@@ -128,20 +138,20 @@
           </div>
         </div>
       </div>
-      
+
       <div class="grid reveal">
         <div class="grid-item ">
 
           <div class="card">
             <img src="./assets/images/placement.png" alt="" class="card-img">
             <div class="card-content">
-              <h4 class="card-header">INTERNSHIP AND PLACEMENT</h4>
+              <h4 class="card-header">INTERNSHIP </h4>
               <p class="card-text">
                 An internship and placement portal is a platform designed to connect students and job seekers with
                 potential employers.
-                These portals typically offer a range of features, eg. job listings, resume building tools etc.
+                Here students can check the current internship opportunities posted by the TPO.
               </p>
-              <a href="#" target="_blank"><button class="card-btn">
+              <a href="internship.php" target="_blank"><button class="card-btn">
                   Visit <span>&rarr;</span>
                 </button>
               </a>
@@ -161,7 +171,7 @@
                 consistency, and transparency in the hiring process, and can help organizations attract and retain top
                 talent
               </p>
-              <a href="#" target="_blank"><button class="card-btn">
+              <a href="https://drive.google.com/file/d/15CY83lWnHaGVrk8RpDufH_iYzoJfI-ME/view?usp=share_link " target="_blank"><button class="card-btn">
                   Visit <span>&rarr;</span>
                 </button>
               </a>
@@ -200,7 +210,7 @@
                 request permission from their academic institution or employer to pursue an internship with another
                 organization
               </p>
-              <a href="#" target="_blank"><button class="card-btn">
+              <a href="NOC-form.php" target="_blank"><button class="card-btn">
                   Visit <span>&rarr;</span>
                 </button>
               </a>
@@ -212,15 +222,14 @@
       <div class="grid  reveal">
         <div class="grid-item-placement-placement-reports">
           <div class="card">
-            <img src="./assets/images/placement reports.png" alt="" class="card-img">
+            <img src="./assets/images/placement reports.png" class="card-img">
             <div class="card-content">
               <h4 class="card-header">PLACEMENT REPORTS</h4>
               <p class="card-text">
-                An internship NOC (No Objection Certificate) application form is a document that interns can use to
-                request permission from their academic institution or employer to pursue an internship with another
-                organization.
+                All the records of students getting placed along with company name, package details etc. will be displayed.
+                .
               </p>
-              <a href="#" target="_blank"><button class="card-btn">
+              <a href="placementrecord.php" target="_blank"><button class="card-btn">
                   Visit <span>&rarr;</span>
                 </button>
               </a>
@@ -261,33 +270,32 @@
     </section>
     <br>
     <br>
-    <h1 align="center" class="reveal"
-    "><mark>Message from Training & Placement Officer</mark></h1>
-    <section class="tp_msg ">
-      <div class="msg_from_tp basic_mrgn reveal">
-        <div>
-          <img src="./assets/images/nabarun-sir.png" class="tpo">
-          <h4>Nabarun Chakraborty</h3>
-            <h5>T&P Officer, BVEC</h5>
-        </div>
-        <br>
-        <p class="about_bvec_para">The Training and Placement Cell is one of the integral part of our college. Training
-          & Placement activities
-          are organized throughout the year with a view to prepare the students to appear the campus recruitment process
-          with confidence. Our aim is to place the maximum number of students through the campus & off campus interviews
-          conducted by the companies. We assist the students in carrier planning and employment strategies and indulge
-          the students to face competitive examination as well as interviews through training programs viz, aptitude
-          tests, group discussions , mock interviews etc. We prepare the students to meet the industries recruitment
-          process and invites the reputed companies to the college for organizing campus placement session. I am sure
-          your visit to BVEC will be pleasant and fruitful. I wish my best wishes to you and your organisation.
-        </p>
+    <h1 align="center" class="reveal" "><mark>Message from Training & Placement Officer</mark></h1>
+    <section class=" tp_msg ">
+      <div class=" msg_from_tp basic_mrgn reveal">
+      <div>
+        <img src="./assets/images/nabarun-sir.png" class="tpo">
+        <h4>Nabarun Chakraborty</h3>
+          <h5>T&P Officer, BVEC</h5>
       </div>
+      <br>
+      <p class="about_bvec_para">The Training and Placement Cell is one of the integral part of our college. Training
+        & Placement activities
+        are organized throughout the year with a view to prepare the students to appear the campus recruitment process
+        with confidence. Our aim is to place the maximum number of students through the campus & off campus interviews
+        conducted by the companies. We assist the students in carrier planning and employment strategies and indulge
+        the students to face competitive examination as well as interviews through training programs viz, aptitude
+        tests, group discussions , mock interviews etc. We prepare the students to meet the industries recruitment
+        process and invites the reputed companies to the college for organizing campus placement session. I am sure
+        your visit to BVEC will be pleasant and fruitful. I wish my best wishes to you and your organisation.
+      </p>
+  </div>
 
-    </section>
-    <br>
-    <br> 
-    <section class="reach_us basic_mrgn reveal"> 
-    <section class="reach_us" id="reach_us"> 
+  </section>
+  <br>
+  <br>
+  <section class="reach_us basic_mrgn reveal">
+    <section class="reach_us" id="reach_us">
       <div>
         <h1><mark>Reach Us</mark></h1>
         <br>
@@ -310,29 +318,13 @@
           <p>Our college is open to bus travel thanks to sprawling highways connected to Guwahati.</p>
         </div>
       </div>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.954482983715!2d92.48193381500157!3d24.797012084083878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x374e2a23ec67508b%3A0xc81a2f646e8e4f46!2sBarak%20Valley%20Engineering%20College%20(BVEC)!5e0!3m2!1sen!2sin!4v1678824632883!5m2!1sen!2sin"
-        width="30%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.954482983715!2d92.48193381500157!3d24.797012084083878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x374e2a23ec67508b%3A0xc81a2f646e8e4f46!2sBarak%20Valley%20Engineering%20College%20(BVEC)!5e0!3m2!1sen!2sin!4v1678824632883!5m2!1sen!2sin" width="30%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-      </section></section>
-    <!-- Footer section -->
-    <hr>
-    <footer class="">
-      <div class="left">
-        <h4>&copy;2023, Centre for Career Development</h4>
-        <h5>Barak Valley Engineering College</h5>
-      </div>
-      <div class="right">
-        <h4>Developed & maintained By <a href="https://github.com/MiniProjectTeam12/EPlacement">Team-12</a> </h4>
-      </div>
-    </footer>
-
-
-
-    <!-- Javascript section -->
-    <script src="https://kit.fontawesome.com/c5009e06c9.js" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+    </section>
+  </section>
+  <?php
+  include "includes/footer.php";
+  ?>
 
 </body>
 

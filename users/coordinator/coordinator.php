@@ -6,11 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="forum.css">
+    <link rel="stylesheet" href="notification.css">
     <link rel="stylesheet" href="utility.css">
+    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="./assets/images/bvec.jpg" type="image/x-icon">
-    <title>BVEC Training and Placement</title>
+    <title>Document</title>
 </head>
+<!-- 
+<body>
+    <div class="col-lg-6">
+        <h2> Signin form </h2>
+        <form action="registration.php" method="post">
+            <div class="form-group">
+                <label> username </label>
+                <input type="text" name="name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label> Password </label>
+                <input type="Password" name="password" class="form-control">
+            </div>
+            <button class="btn btn-primary" type="submit"> Login </button>
+        </form>
+    </div>
+</body> -->
 
 <body>
     <!-- All href will open in new tab -->
@@ -40,6 +59,11 @@
                             <ul><a href="#">Facilities</a></ul>
                         </div>
                     </li>
+                    <li><a href="JavaScript:void(0)">Co-ordinator <i class="fas fa-caret-down"></i></a>
+                        <div class="dropdown_menu">
+                            <ul><a href="slogin.html">Co-ordinator Login</a></ul>
+                        </div>
+                    </li>
                     <li><a href="JavaScript:void(0)">Alumni <i class="fas fa-caret-down"></i></a>
                         <div class="dropdown_menu">
                             <ul><a href="#"><i class="fa-solid fa-right-to-bracket"></i>&nbsp Alumni Login</a></ul>
@@ -60,69 +84,56 @@
         </header>
         <br><br><br><br>
         <!-- Everything must be done under section class, add class or id  -->
-        <section class="forum basic_mrgn">
-            <div id="forumHeader">
-                <select name="categories" id="category">
-                    <option value="">--SelectCategory--</option>
-                    <option value="">Internships</option>
-                    <option value="">Programming</option>
-                    <option value="">Placement</option>
-                </select>
-                <div>
-                    <a href="">Latest</a>
-                </div>
-                <div>
-                    <a href="">Top</a>
-                </div>
-                <div>
-                    <a href="">Create</a>
-                </div>
-            </div>
-            <div id="allPostStats">
-                <h2>All Time</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <td>Views</td>
-                        <td>Replies</td>
-                    </tr>
-                </thead>
-            </table>
-            </div>
-            
-            <hr>
-            <div id="discussionBody">
-                <div class="topicInfo">
-                    <h3 class="postTitle">Lorem ipsum dolor sit amet consectetur.</h3>
-                    <h5 class="postCategory">Programming</h5>
-                    <div class="AuthorInfo">
-                        <img src="/assets/images/nabarun_sir.jpg" alt="" width="30px">
-                        <h5>Deepjyoti Das
-                            <span class="date">
-                                <div class="post-date">
-                                    <span class="day">22</span>
-                                    <span class="month">May</span>
-                                    <span class="year">2023</span>
-                                </div>
-                            </span>
-                        </h5>
-                        <a href="">Reply</a>
+        <section id="create-account">
+            <div class="container-form">
+                <div class="login-left">
+                    <div class="login-header"><br>
+                        <h1>Welcome to T&P Cell BVEC</h1>
+                        <p class="error-msg">Account already exists. Please Login.</p><br>
+                    </div>
+
+                    <form class="login-form" id="form" action="coordinator-database.php" method="post">
+
+                        <div class="signup-form-content">
+                            <div class="input-control">
+                                <label>Full Name</label>
+                                <input type="text" name="name" id="username" required>
+                                <div class="error"></div>
+                                <br>
+                            </div>
+                            <div class="input-control">
+                                <label>Enter Email</label>
+                                <input type="email" name="email" id="email" required>
+                                <div class="error"></div>
+                            </div>
+                            <div class="input-control" id="pass">
+                                <label>Enter Password</label>
+                                <input type="password" name="password" id="password" required>
+                                <!-- <div class="error"></div> -->
+                                <div id="password-error" class="error"></div>
+                            </div>
+                            <!-- <div>
+                         <label for="photo">Upload Photo</label>
+                         <input type="file" name="photo" id="photo">
+                      </div> -->
+                            <div class="upload">
+                                <button type="button" class="btn-warning">
+                                    <i class="fa fa-upload"></i> Upload Photo
+                                    <input type="file" id="photo-upload">
+                                </button>
+                            </div>
+                            <p id="upload-message"></p>
+                            <button class="btn-sign-up1" type="submit" id="submit">Sign up</button>
+                        </div>
+
+                    </form>
+                    <br>
+                    <h4>Already have an account?</h4><br>
+                    <div class="sign-in">
+                        <a href="slogin.html"> <button class="btn-sign-in1">Sign In</button></a>
                     </div>
                 </div>
-
-                <div class="topicsStats">
-                    <table> 
-                        <tbody>
-                            <tr>
-                                <td>10K</td>
-                                <td>10</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
- 
             </div>
-
         </section>
         <br>
 
@@ -158,5 +169,6 @@
             }
         </script>
 </body>
+<script src="createacc.js"></script>
 
 </html>

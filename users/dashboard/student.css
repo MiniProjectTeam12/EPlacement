@@ -1,0 +1,83 @@
+/* dashboard page icon img */
+.todoimg{
+    -webkit-mask-image: url("../../assets/images/1.jpg"); 
+    mask-image: url("../../assets/images/1.jpg"); 
+    -webkit-mask-size: 100%;
+    mask-size: 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+}
+
+.user_info {
+    order: 1;
+    float: right;
+}
+#user_name {
+    text-transform: uppercase;
+    background: #000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content:center;   
+}
+.User_dashboard{
+    /* margin-top: 5%; */
+    width: 200px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../../assets/images/1.jpg");
+    min-height: 100vh;
+    height: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/* flex property */
+.items_center {
+    display: flex;
+    align-items: center;
+}
+.items_between {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* display toggle show or hidden */
+.d_none{
+    display: none;
+}
+
+/* icon as button css*/
+.i_btn{
+    height:40px;
+    width: 38px;
+    cursor: pointer;   
+}
+/* shadow of box */
+.b_shadow{
+    box-shadow:0px 0px 20px rgb(10, 5, 10);
+}
+/* center a img */
+.img_center{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/*  */
+.img_circle{
+    border-radius: 50%;
+}
+
+/* font size on different devices  */
+@media (max-width:800px){
+    .mblf_1p5{
+    font-size: 1.5rem;
+}
+}
