@@ -18,7 +18,7 @@
             <li><a href="../../internship.php">Internship</a></li>
             <li><a href="JavaScript:void(0)">For Students <i class="fas fa-caret-down"></i></a>
                 <div class="dropdown_menu">
-                    <ul><a href="signup.php"><i class="fa-solid fa-right-to-bracket"></i>&nbsp Student Login</a></ul>
+                    <ul><a href="../students/signup.php"><i class="fa-solid fa-right-to-bracket"></i>&nbsp Student Login</a></ul>
                     <ul><a href="../../forum.php"><i class="fa-regular fa-message"></i>&nbsp Forum</a></ul>
                     <ul><a href="https://www.overleaf.com/8646338143yhgpzszvpmxv" target="_blank">Resume Generator</a></ul>
                     <ul><a href="../../NOC-form.php">NOC Apply</a></ul>
@@ -36,7 +36,8 @@
             </li>
             <li><a href="JavaScript:void(0)">Co-ordinator <i class="fas fa-caret-down"></i></a>
                 <div class="dropdown_menu">
-                    <ul><a href="#">Co-ordinator Login</a></ul>
+                <ul><a href="../../users/coordinator/coordinator.php">Co-ordinator Login</a></ul>
+
                 </div>
             </li>
             <li><a href="JavaScript:void(0)">Alumni <i class="fas fa-caret-down"></i></a>
@@ -46,7 +47,11 @@
                 </div>
             </li>
             <li><a href="JavaScript:void(0)">Contact Us</i></a>
-                <?php 
+                <?php
+                if (session_status() !== PHP_SESSION_ACTIVE) {
+                    session_start();
+                }
+
                 if (isset($_SESSION['email'])) {
                 ?>
             <li><a href="../../users/dashboard/student.php" id="dashboard">Dashboard</i></a>

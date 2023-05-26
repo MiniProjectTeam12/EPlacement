@@ -36,18 +36,21 @@
             </li>
             <li><a href="JavaScript:void(0)">Co-ordinator <i class="fas fa-caret-down"></i></a>
                 <div class="dropdown_menu">
-                    <ul><a href="#">Co-ordinator Login</a></ul>
+                    <ul><a href="users/coordinator/coordinator.php">Co-ordinator Login</a></ul>
                 </div>
             </li>
             <li><a href="JavaScript:void(0)">Alumni <i class="fas fa-caret-down"></i></a>
-            <div class="dropdown_menu">
-              <ul><a href="#"><i class="fa-solid fa-right-to-bracket"></i>&nbsp Alumni Login</a></ul>
-              <ul><a href="#"><i class="fa-solid fa-magnifying-glass"></i>&nbsp Alumni Search</a></ul>
-            </div>
-          </li>
+                <div class="dropdown_menu">
+                    <ul><a href="#"><i class="fa-solid fa-right-to-bracket"></i>&nbsp Alumni Login</a></ul>
+                    <ul><a href="#"><i class="fa-solid fa-magnifying-glass"></i>&nbsp Alumni Search</a></ul>
+                </div>
+            </li>
             <li><a href="JavaScript:void(0)">Contact Us</i></a>
-            <?php
-            session_start();
+                <?php 
+                if (session_status() !== PHP_SESSION_ACTIVE) {
+                    session_start();
+                } 
+                
                 if (isset($_SESSION['email'])) {
                 ?>
             <li><a href="users/dashboard/student.php" id="dashboard">Dashboard</i></a>

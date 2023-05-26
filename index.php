@@ -27,7 +27,7 @@
           <li><a href="JavaScript:void(0)">For Students <i class="fas fa-caret-down"></i></a>
             <div class="dropdown_menu">
               <ul><a href="users/students/login.php"><i class="fa-solid fa-right-to-bracket"></i>&nbsp Student Login</a></ul>
-              <ul><a href="#"><i class="fa-regular fa-message"></i>&nbsp Forum</a></ul>
+              <ul><a href="forum.php"><i class="fa-regular fa-message"></i>&nbsp Forum</a></ul>
               <ul><a href="https://www.overleaf.com/8646338143yhgpzszvpmxv" target="_blank">Resume Generator</a></ul>
               <ul><a href="NOC-form.php">NOC Apply</a></ul>
               <ul><a href="https://drive.google.com/file/d/15CY83lWnHaGVrk8RpDufH_iYzoJfI-ME/view?usp=share_link " target="_blank">Placement Policies</a></ul>
@@ -43,7 +43,7 @@
           </li>
           <li><a href="JavaScript:void(0)">Co-ordinator <i class="fas fa-caret-down"></i></a>
             <div class="dropdown_menu">
-              <ul><a href="coordinator.php">Co-ordinator Login</a></ul>
+            <ul><a href="users/coordinator/coordinator.php">Co-ordinator Login</a></ul>
             </div>
           </li>
           <li><a href="JavaScript:void(0)">Alumni <i class="fas fa-caret-down"></i></a>

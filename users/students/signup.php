@@ -1,6 +1,42 @@
 <?php
-session_start();
-include "../../includes/header2.php";
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+if(isset($_SESSION['email'])){
+    header("Location: ../dashboard/student.php");
+}
+include "../../includes/header2.php"; 
+if (isset($_POST['submit'])) {
+    include "../../includes/connection.php";
+    $name = $_POST['name'];
+    $password = $_POST['password'];
+    $spass = password_hash($password, PASSWORD_DEFAULT);
+    $email = $_POST['email'];
+    $mobile = $_POST['mobile'];
+    $branch = $_POST['branch'];
+    $semester = $_POST['semester'];
+
+    $img = $_FILES['pic'];
+    $fname = $img['name'];
+    $fpath = $img['tmp_name'];
+    $ferror = $img['error'];
+
+    if (!empty($name) and !empty($password)) {
+        if ($ferror != 0) {
+            $df = "../../assets/images/profilePics/default.svg";
+        } else {
+            $df = '../../assets/images/profilePics/' . $fname;
+            move_uploaded_file($fpath, $df);
+        }
+        $insert = "INSERT INTO `signup`(`name`,`password`,`email`,`mobile`,`branch`,`sem`,`photos`) VALUES ('$name','$spass','$email','$mobile','$branch','$semester','$df')";
+        $query = mysqli_query($conn, $insert) or die();
+        if ($query) {
+            $_SESSION['username'] = $username; //using session
+            $_SESSION['id'] = $row['id']; //using session 
+            header("Location: ../dashboard/student.php");
+        }
+    }
+} 
 ?>
 <link rel="stylesheet" href="../../css/form.css">
 <br><br><br><br>
@@ -83,41 +119,5 @@ include "../../includes/header2.php";
 </section>
 <br>
 
-
-</html>
-
-<?php
-if (isset($_POST['submit'])) {
-    include "../../includes/connection.php";
-    $name = $_POST['name'];
-    $password = $_POST['password'];
-    $spass = password_hash($password, PASSWORD_DEFAULT);
-    $email = $_POST['email'];
-    $mobile = $_POST['mobile'];
-    $branch = $_POST['branch'];
-    $semester = $_POST['semester'];
-
-    $img = $_FILES['pic'];
-    $fname = $img['name'];
-    $fpath = $img['tmp_name'];
-    $ferror = $img['error'];
-
-    if (!empty($name) and !empty($password)) {
-        if ($ferror != 0) {
-            $df = "../../assets/images/profilePics/default.svg";
-        } else {
-            $df = '../../assets/images/profilePics/' . $fname;
-            move_uploaded_file($fpath, $df);
-        }
-        $insert = "INSERT INTO `signup`(`name`,`password`,`email`,`mobile`,`branch`,`sem`,`photos`) VALUES ('$name','$spass','$email','$mobile','$branch','$semester','$df')";
-        $query = mysqli_query($conn, $insert) or die();
-        if ($query) {
-            $_SESSION['username'] = $username; //using session
-            $_SESSION['id'] = $row['id']; //using session 
-            header("Location: ../dashboard/student.php");
-        }
-    }
-}
-?>
 <?php
 include "../../includes/footer.php";

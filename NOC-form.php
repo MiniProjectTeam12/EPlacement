@@ -1,6 +1,11 @@
-<?php
+<?php 
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+if (!isset($_SESSION['email'])) {
+    header("Location: users/students/login.php");
+}
 if (isset($_POST['submit'])) {
-    // session_start();
     include "includes/connection.php";
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -22,7 +27,7 @@ if (isset($_POST['submit'])) {
         mysqli_query($conn, $qy);
 
         // Redirect to success page
-        header("Location: users/dashboard/student.php"); 
+        header("Location: users/dashboard/student.php");
     }
 }
 ?>

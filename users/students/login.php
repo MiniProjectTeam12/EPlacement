@@ -1,6 +1,10 @@
 <?php
-session_start();
-
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+if(isset($_SESSION['email'])){
+  header("Location: ../dashboard/student.php");
+}
 include "../../includes/connection.php";
 $login = false;
 
@@ -95,3 +99,5 @@ if (isset($_SESSION['email'])) {
   <br>
 <?php
 }
+ 
+include "../../includes/footer.php";
