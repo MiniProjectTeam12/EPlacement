@@ -1,52 +1,64 @@
+
 table {
     border-collapse: collapse;
-  }
-  
-  th,
-  td {
+}
+
+th,
+td {
     font-size: small;
     padding: 10px;
     border: 1px solid #ccc;
 }
-
-#navbar{
+.forum {
+    background: #2c9797;
+    padding: 1rem;
+  }
+#navbar {
     background: #000;
 }
-#discussionBody{
-    padding: 1vw; 
+
+#discussionBody {
+    padding: 1vw;
     box-shadow: 0 5px 10px #000;
     display: flex;
     justify-content: space-between;
+    margin-top: 40px;
+    background: #2b3107;
+
 }
-#forumHeader{
+
+#forumHeader {
     display: flex;
     justify-content: space-around;
 }
-#allPostStats{
+
+#allPostStats {
     display: flex;
     justify-content: space-between;
 }
-.topicInfo{
-   
+ 
+.posttitle {
+    color: #04ec2b;
 }
-.postTitle{
-    color: #b330a8;
+
+.postCategory {
+    color: #f007f8;
 }
-.postCategory{
-    color: #fc452d;
-}
-.AuthorInfo{
-    display: flex;
+
+.AuthorInfo {
+    display: flex; 
     width: 20vw;
     justify-content: space-evenly;
-    margin: 5px;
-    align-items: center;  
-    font-size: 14px;
+    /* margin: 5px; */
+    /* align-items: center; */
+    /* font-size: 14px; */
     color: #400ff1;
 }
-.AuthorInfo img{
+
+.AuthorInfo img {
     border-radius: 50%;
 }
+
 .post-date {
     display: inline-block;
     background-color: #58d44d;
@@ -54,17 +66,4 @@ table {
     border-radius: 5px;
     font-size: 14px;
     color: #b330a8;
-  }
-  
-  .day {
-    font-weight: bold;
-  }
-  
-  .month {
-    text-transform: uppercase;
-  }
-  
-  .year {
-    opacity: 0.7;
-  }
-  
+}

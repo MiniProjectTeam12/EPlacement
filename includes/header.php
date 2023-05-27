@@ -18,10 +18,18 @@
             <li><a href="internship.php">Internship</a></li>
             <li><a href="JavaScript:void(0)">For Students <i class="fas fa-caret-down"></i></a>
                 <div class="dropdown_menu">
-                    <ul><a href="users/students/signup.php"><i class="fa-solid fa-right-to-bracket"></i>&nbsp Student Login</a></ul>
+                    <ul><a href="users/students/login.php"><i class="fa-solid fa-right-to-bracket"></i>&nbsp Student Login</a></ul>
                     <ul><a href="forum.php"><i class="fa-regular fa-message"></i>&nbsp Forum</a></ul>
                     <ul><a href="https://www.overleaf.com/8646338143yhgpzszvpmxv" target="_blank">Resume Generator</a></ul>
-                    <ul><a href="NOC-form.php">NOC Apply</a></ul>
+                    <?php
+                    if (session_status() !== PHP_SESSION_ACTIVE) {
+                        session_start();
+                    }
+
+                    if (isset($_SESSION['isstudent'])) {
+                    ?>
+                        <ul><a href="NOC-form.php">NOC Apply</a></ul>
+                    <?php } ?>
                     <ul><a href="https://drive.google.com/file/d/15CY83lWnHaGVrk8RpDufH_iYzoJfI-ME/view?usp=share_link " target="_blank">Placement Policies</a></ul>
 
                 </div>
@@ -36,24 +44,40 @@
             </li>
             <li><a href="JavaScript:void(0)">Co-ordinator <i class="fas fa-caret-down"></i></a>
                 <div class="dropdown_menu">
-                    <ul><a href="users/coordinator/coordinator.php">Co-ordinator Login</a></ul>
+                    <ul><a href="users/coordinator/coordinator.php"><i class="fa-solid fa-right-to-bracket"></i>&nbspCo-ordinator Login</a></ul>
+                    <ul><a href="users/coordinator/searchstudents.php">Search Students</a></ul>
                 </div>
             </li>
             <li><a href="JavaScript:void(0)">Alumni <i class="fas fa-caret-down"></i></a>
                 <div class="dropdown_menu">
-                    <ul><a href="#"><i class="fa-solid fa-right-to-bracket"></i>&nbsp Alumni Login</a></ul>
-                    <ul><a href="#"><i class="fa-solid fa-magnifying-glass"></i>&nbsp Alumni Search</a></ul>
+                    <ul><a href="users/alumni/login.php"><i class="fa-solid fa-right-to-bracket"></i>&nbsp Alumni Login</a></ul>
+                    <ul><a href="users/coordinator/searchstudents.php"><i class="fa-solid fa-magnifying-glass"></i>&nbspSearch Students</a></ul>
                 </div>
             </li>
             <li><a href="JavaScript:void(0)">Contact Us</i></a>
-                <?php 
+                <?php
                 if (session_status() !== PHP_SESSION_ACTIVE) {
                     session_start();
-                } 
-                
-                if (isset($_SESSION['email'])) {
+                }
+
+                if (isset($_SESSION['email']) && !isset($_SESSION['isalumni'])) {
                 ?>
-            <li><a href="users/dashboard/student.php" id="dashboard">Dashboard</i></a>
+            <li><a href="users/dashboard/student.php" id="dashboard">
+                    <?php $string = $_SESSION['photos'];
+                    $author_img = str_replace("../../", "", $string);  ?>
+                    <img style="border-radius: 50%;" src="<?php
+                                                            echo $author_img ?>" alt="" width="30px" height="30px"></i>
+                </a>
+            <?php
+                };
+                if (isset($_SESSION['email']) && isset($_SESSION['isalumni'])) {
+            ?>
+            <li><a href="users/dashboard/alumni.php" id="dashboard">
+                    <?php $string = $_SESSION['photos'];
+                    $author_img = str_replace("../../", "", $string);  ?>
+                    <img style="border-radius: 50%;" src="<?php
+                                                            echo $author_img ?>" alt="" width="30px" height="30px"></i>
+                </a>
             <?php
                 };
             ?>

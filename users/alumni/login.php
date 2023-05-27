@@ -1,9 +1,10 @@
 <?php
 if (session_status() !== PHP_SESSION_ACTIVE) {
-  session_start();
-} 
-if (isset($_SESSION['isstudent'])) {
-  header("Location: ../dashboard/student.php");
+    session_start();
+}
+
+if(isset($_SESSION['email'])){
+  header("Location: ../dashboard/alumni.php");
 }
 include "../../includes/connection.php";
 $login = false;
@@ -19,7 +20,7 @@ if (isset($_POST['login'])) {
     $pass = mysqli_real_escape_string($conn, $pass);
 
 
-    $search = "SELECT * FROM signup WHERE email='$email' ";
+    $search = "SELECT * FROM alumni WHERE email='$email' ";
     $result = mysqli_query($conn, $search);
     if (mysqli_num_rows($result) == 0) {
       echo "No account exist";
@@ -27,12 +28,12 @@ if (isset($_POST['login'])) {
       if ($row = mysqli_fetch_assoc($result)) {
         if (password_verify($pass, $row['password'])) {
           $login = true;
-          $_SESSION['isstudent'] = "YES"; //using session
           $_SESSION['photos'] = $row['photos']; //using session
           $_SESSION['name'] = $row['name']; //using session
+          $_SESSION['isalumni'] = "YES"; //using session
           $_SESSION['email'] = $email; //using session
           $_SESSION['id'] = $row['id']; //using session   
-          header("Location: ../dashboard/student.php");
+          header("Location: ../dashboard/alumni.php");
         } else {
           echo "Wrong Password";
         }
@@ -48,7 +49,7 @@ if (isset($_POST['login'])) {
 <?php
 
 if (isset($_SESSION['email'])) {
-  header("location:../dashboard/student.php");
+  header("location:../dashboard/alumni.php");
 } else {
   include "../../includes/header2.php";
 ?>
@@ -101,5 +102,5 @@ if (isset($_SESSION['email'])) {
   <br>
 <?php
 }
-
+ 
 include "../../includes/footer.php";

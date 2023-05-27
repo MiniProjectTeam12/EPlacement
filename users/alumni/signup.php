@@ -3,7 +3,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
 if (isset($_SESSION['email'])) {
-    header("Location: ../dashboard/student.php");
+    header("Location: ../dashboard/alumni.php");
 }
 include "../../includes/header2.php";
 if (isset($_POST['submit'])) {
@@ -14,7 +14,8 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $mobile = $_POST['mobile'];
     $branch = $_POST['branch'];
-    $semester = $_POST['semester'];
+    $passout_year = $_POST['passout_year'];
+    $company = $_POST['company'];
 
     $img = $_FILES['pic'];
     $fname = $img['name'];
@@ -28,7 +29,7 @@ if (isset($_POST['submit'])) {
             $df = '../../assets/images/profilePics/' . $fname;
             move_uploaded_file($fpath, $df);
         }
-        $insert = "INSERT INTO `signup`(`name`,`password`,`email`,`mobile`,`branch`,`sem`,`photos`) VALUES ('$name','$spass','$email','$mobile','$branch','$semester','$df')";
+        $insert = "INSERT INTO `alumni`(`name`,`password`,`email`,`mobile`,`branch`,`passout_year`,`company`,`photos`) VALUES ('$name','$spass','$email','$mobile','$branch','$passout_year','$company','$df')";
         $query = mysqli_query($conn, $insert) or die();
         if ($query) {
             // $_SESSION['photos'] = $df; //using session
@@ -85,18 +86,14 @@ if (isset($_POST['submit'])) {
                         <div id="semester-error" class="error"></div>
                     </div>
                     <div class="input-control" id="pass">
-                        <label>Select Semester</label>
-                        <select name="semester" id="semester" required>
-                            <option value="1st">Semester 1</option>
-                            <option value="2nd">Semester 2</option>
-                            <option value="3rd">Semester 3</option>
-                            <option value="4th">Semester 4</option>
-                            <option value="5th">Semester 5</option>
-                            <option value="6th">Semester 6</option>
-                            <option value="7th">Semester 7</option>
-                            <option value="8th">Semester 8</option>
-                        </select>
-                        <div id="semester-error" class="error"></div>
+                        <label>Passout Year</label>
+                        <input type="text" name="passout_year" id="passout_year" required>
+                        <div id="passout_year-error" class="error"></div>
+                    </div>
+                    <div class="input-control" id="pass">
+                        <label>Company</label>
+                        <input type="text" name="company" id="company" required>
+                        <div id="company-error" class="error"></div>
                     </div>
 
                     <div class="upload">

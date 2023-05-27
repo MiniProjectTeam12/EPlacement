@@ -2,8 +2,8 @@
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
-if (!isset($_SESSION['name'])) {
-    header("Location: ../students/login.php");
+if (!isset($_SESSION['isstudent'])) {
+    header("Location: ../../index.php");
 }
 
 include "../../includes/connection.php";
@@ -37,6 +37,9 @@ $row = mysqli_fetch_assoc($query);
                 <h1 style="color:red">You have not applied for NOC</h1><a href="../../NOC-form.php" class="btn">Apply</a>
             </div>
         <?php
+            include "../../includes/footer.php";
+
+            return;
         }
         if ($nocdata['email'] == $row['email']) {
         ?>
@@ -48,11 +51,27 @@ $row = mysqli_fetch_assoc($query);
                 <?php
                 } else {
                 ?>
-                    <h1 style="color:green">You have applied for NOC</h1> <span style="color:green"><?php echo $nocdata['status']; ?></span>
+                    <h1 style="color:green">Your NOC has been sent to email</h1> <span style="color:green"><?php echo $nocdata['status']; ?></span>
                 <?php
                 }
                 ?>
             </div>
+    </div>
+
+    <div class="viewinternships">
+        <h1 align="center">View Open Internships</h1>
+        <hr>
+        <?php
+            $internshipsdata = "SELECT * from `internships` ORDER BY id DESC";
+            $internshipsquery = mysqli_query($conn, $internshipsdata);
+            while ($indata = mysqli_fetch_assoc($internshipsquery)) {
+                $inurl = $indata['pdf'];
+        ?>
+            <h3 align="center">
+                <a href="<?php echo $inurl; ?>">
+                    <?php echo $indata['title']; ?></a>
+            </h3>
+        <?php } ?>
     </div>
 <?php
         }

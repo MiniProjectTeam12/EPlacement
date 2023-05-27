@@ -1,8 +1,8 @@
 <?php
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
-}
-if (isset($_SESSION['coordinatoremail'])) {
+} 
+if(isset($_SESSION['coordinatorname'])){
     header("Location: ../dashboard/coordinator.php");
 }
 include "../../includes/connection.php";
@@ -26,6 +26,7 @@ if (isset($_POST['login'])) {
         } else {
             if ($row = mysqli_fetch_assoc($result)) {
                 $login = true;
+                $_SESSION['iscoordinator'] = "YES"; //using session
                 $_SESSION['coordinatorname'] = $row['name']; //using session
                 $_SESSION['coordinatoremail'] = $email; //using session 
                 header("Location: ../dashboard/coordinator.php");
@@ -41,55 +42,55 @@ if (isset($_POST['login'])) {
 
 
 <?php
- 
-    include "../../includes/header2.php";
+
+include "../../includes/header2.php";
 ?>
-    <link rel="stylesheet" href="../../css/form.css">
+<link rel="stylesheet" href="../../css/form.css">
 
-    <br><br><br><br>
-    <!-- Everything must be done under section class, add class or id  -->
-    <section id="sign-in-body">
-        <div class="container-form">
-            <div class="login-left">
-                <div class="login-header">
-                    <h1>Welcome to T&P Cell BVEC</h1><br>
-                    <p class="error-msg">Invalid email or password. Please try again.</p>
-                </div>
-
-                <form class="login-form" method="post">
-                    <div class="login-form-content">
-                        <div class="input-control">
-                            <label>Email</label>
-                            <input type="text" id="email" name="email">
-                        </div>
-                        <div class="input-control" id="pass">
-                            <label for="password">Password</label>
-                            <input type="password" id="password" name="password">
-                        </div>
-                        <div class="input-control">
-                            <div class="checkbox">
-                                <input type="checkbox" id="rememberMeCheckbox"> Remember Me
-                                <!-- <label for="rememberMeCheckbox" id="checkboxLabel">Remember me</label> -->
-                            </div>
-                            <br>
-                            <button class="btn-sign-in" type="submit" name="login">Sign In</button>
-                </form>
+<br><br><br><br>
+<!-- Everything must be done under section class, add class or id  -->
+<section id="sign-in-body">
+    <div class="container-form">
+        <div class="login-left">
+            <div class="login-header">
+                <h1>Welcome to T&P Cell BVEC</h1><br>
+                <p class="error-msg">Invalid email or password. Please try again.</p>
             </div>
 
+            <form class="login-form" method="post">
+                <div class="login-form-content">
+                    <div class="input-control">
+                        <label>Email</label>
+                        <input type="text" id="email" name="email">
+                    </div>
+                    <div class="input-control" id="pass">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password">
+                    </div>
+                    <div class="input-control">
+                        <div class="checkbox">
+                            <input type="checkbox" id="rememberMeCheckbox"> Remember Me
+                            <!-- <label for="rememberMeCheckbox" id="checkboxLabel">Remember me</label> -->
+                        </div>
+                        <br>
+                        <button class="btn-sign-in" type="submit" name="login">Sign In</button>
+            </form>
         </div>
-        <br>
-        <br>
-        <!-- <div class="forgot-pass">
+
+    </div>
+    <br>
+    <br>
+    <!-- <div class="forgot-pass">
             <a href="forgot.php">
                 <p>Forgot Password?</p>
             </a>
         </div> -->
-        <br>
-        <br>
-        <!-- <h4>Do not have an account?</h4><br>
-        <a href="signup.php"> <button class="btn-sign-up">Create Account</button></a> -->
-        </div>
-    </section>
     <br>
-<?php 
+    <br>
+    <!-- <h4>Do not have an account?</h4><br>
+        <a href="signup.php"> <button class="btn-sign-up">Create Account</button></a> -->
+    </div>
+</section>
+<br>
+<?php
 include "../../includes/footer.php";

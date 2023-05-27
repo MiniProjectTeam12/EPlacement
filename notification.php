@@ -1,5 +1,12 @@
 <?php
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+include "includes/connection.php";
 include "includes/header.php";
+
+$data = "SELECT * from `notifications`";
+$query = mysqli_query($conn, $data); 
 ?>
 <link rel="stylesheet" href="css/notification.css">
 <br><br><br><br>
@@ -8,16 +15,18 @@ include "includes/header.php";
         <h1>NOTIFICATION</h1>
     </div>
     <marquee direction="up" class="flex_arnd notices" id="myMarquee">
-        <h3><a href="https://bvec.ac.in/upload/notification/1665655746.pdf">Notification for attending
-                Orientation program for the B.Tech first semester students </a> <span><img src="https://bvec.ac.in/images/new.gif" alt=""></span></h3>
-        <h3><a href="https://bvec.ac.in/upload/notification/1666853181.pdf">Spot admission notification for JLEE
-                2022 appeared candidates </a></h3>
-        <h3><a href="https://bvec.ac.in/upload/notification/1665403799.pdf">Notice of lateral admitted students
-                through JLEE 2022 </a></h3>
-        <h3><a href="https://bvec.ac.in/upload/notification/1664011942.pdf">Physical reporting of candidates
-                allotted seat in the 2nd round counseling CEE & JLEE 2022</a></h3>
-        <h3><a href="https://bvec.ac.in/upload/notification/1662983883.pdf">Notification for online payment for
-                CEE 2022 counseling </a></h3>
+        <?php
+        while ($notdata = mysqli_fetch_assoc($query)) {
+            $noturl = $notdata['pdf'];
+            $url = str_replace("../../", "", $noturl);
+        ?>
+            <h3>
+                <a href="<?php echo $url; ?>">
+                <?php echo $notdata['title']; ?></a> 
+
+                <span><img src="https://bvec.ac.in/images/new.gif" alt=""></span>
+            </h3>
+        <?php } ?>
     </marquee>
 </section>
 <br>
