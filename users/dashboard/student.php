@@ -20,7 +20,7 @@ $row = mysqli_fetch_assoc($query);
         <div class="flex ">
             <img src="<?php echo $row['photos']; ?>" alt="" width="120px" class="round">
             <h1>Hello, <span style="text-transform:uppercase;color:chocolate"><?php echo $name; ?></span></h1>
-            <h3><span style="color:blue;"><?php echo $row['branch']; ?></span>,<span style="color:pink"><?php echo $row['sem']; ?> SEM</span></h3>
+            <h3><span style="color:blue;"><?php echo $row['branch']; ?></span>,<span style="color:rgb(17, 242, 43)"><?php echo $row['sem']; ?> SEM</span></h3>
 
         </div>
         <a class="btn" href="../logout.php">Logout</a>
@@ -36,9 +36,7 @@ $row = mysqli_fetch_assoc($query);
             <div class="flex_arnd basic_mrgn" style="border:1px solid blue;padding:1rem">
                 <h1 style="color:red">You have not applied for NOC</h1><a href="../../NOC-form.php" class="btn">Apply</a>
             </div>
-        <?php 
-        include "../../includes/footer2.php";
-            return;
+        <?php
         }
         if ($nocdata['email'] == $row['email']) {
         ?>
@@ -55,12 +53,7 @@ $row = mysqli_fetch_assoc($query);
                 }
                 ?>
             </div>
-        <?php
-        }
-        ?>
     </div>
-
-
-</div>
-<br>
-
+<?php
+        }
+        include "../../includes/footer.php";

@@ -70,7 +70,7 @@ if (isset($_POST['submit'])) {
                     </div>
                     <div class="input-control" id="pass">
                         <label>Enter Mobile</label>
-                        <input type="number" name="mobile" id="mobile" required>
+                        <input type="text" name="mobile" id="mobile" required>
                         <div id="mobile-error" class="error"></div>
                     </div>
                     <div class="input-control" id="pass">

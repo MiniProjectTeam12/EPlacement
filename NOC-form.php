@@ -1,12 +1,12 @@
-<?php 
+<?php
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
 if (!isset($_SESSION['email'])) {
     header("Location: users/students/login.php");
 }
+include "includes/connection.php";
 if (isset($_POST['submit'])) {
-    include "includes/connection.php";
     $name = $_POST['name'];
     $email = $_POST['email'];
     $phoneno = $_POST['phoneno'];
@@ -48,25 +48,44 @@ include "includes/header.php";
 
             <form class="login-form" id="form" method="post">
 
+                <?php
+                $studname = $_SESSION['name'];
+                $studemail = $_SESSION['email'];
+                $userdata = "SELECT * FROM signup WHERE name = '$studname' &&  email= '$studemail'";
+                $userresult = mysqli_query($conn, $userdata);
+                $studentdata = mysqli_fetch_assoc($userresult);
+                ?>
                 <div class="signup-form-content">
                     <div class="input-control">
                         <label>Full Name</label>
-                        <input type="text" name="name" id="name" required>
+                        <input type="text" name="name" id="name" value="<?php echo $studname; ?>" readonly required>
                         <div class="error"></div>
                     </div>
                     <div class="input-control">
                         <label>Email</label>
-                        <input type="email" name="email" id="email" required>
+                        <input type="email" name="email" id="email" value="<?php echo $studemail; ?>" required>
 
                     </div>
+
                     <div class="input-control">
                         <label>Phone No.</label>
-                        <input type="tel" name="phoneno" pattern="[0-9]{10}" required>
+                        <input type="text" name="phoneno" value="<?php echo $studentdata['mobile']; ?>" required>
                     </div>
-                    <div class="input-control">
-                        <label>Semester</label>
-                        <input type="text" name="semester" required>
-                        <div class="error"></div>
+                    <div class="input-control" id="pass">
+                        <label>Select Semester</label>
+                        <select name="semester" id="semester" required>
+                            
+                            <option value="<?php echo $studentdata['sem'];?>"><?php echo $studentdata['sem'];?></option>
+                            <option value="1st">Semester 1</option>
+                            <option value="2nd">Semester 2</option>
+                            <option value="3rd">Semester 3</option>
+                            <option value="4th">Semester 4</option>
+                            <option value="5th">Semester 5</option>
+                            <option value="6th">Semester 6</option>
+                            <option value="7th">Semester 7</option>
+                            <option value="8th">Semester 8</option>
+                        </select>
+                        <div id="semester-error" class="error"></div>
                     </div>
                     <div class="input-control">
                         <label>Roll No.</label>
@@ -75,7 +94,7 @@ include "includes/header.php";
                     </div>
                     <div class="input-control">
                         <label>Department</label>
-                        <input type="text" name="department" required>
+                        <input type="text" name="department" value="<?php echo $studentdata['branch']; ?>" readonly required>
                         <div class="error"></div>
                     </div>
                     <div class="input-control">

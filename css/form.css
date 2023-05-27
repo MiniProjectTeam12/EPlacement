@@ -35,7 +35,7 @@
   font-size: 13px;
 }
 
-input{
+input {
   border: 1px solid black;
   height: 45px;
   padding: 0 2rem;
@@ -50,7 +50,7 @@ select {
   border: 1px solid black;
   height: 45px;
   padding: 0 2rem;
-  width: 100%; 
+  width: 100%;
   outline: none;
   transition: background 0.6s;
   font-size: 13px;
@@ -285,7 +285,6 @@ input[type="checkbox"] {
       rgba(70, 83, 252, 1) 84%);
   padding: 40px;
   width: 94%;
-  height: 100vh;
 }
 
 .create-account-NOC {
@@ -296,7 +295,6 @@ input[type="checkbox"] {
       rgba(255, 255, 255, 1) 86%);
   padding: 40px;
   width: 94%;
-  height: 100%;
 }
 
 .signup-form-content {

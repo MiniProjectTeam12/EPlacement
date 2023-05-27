@@ -41,10 +41,7 @@ if (isset($_POST['login'])) {
 
 
 <?php
-
-if (isset($_SESSION['email'])) {
-    header("location:../dashboard/coordinator.php");
-} else {
+ 
     include "../../includes/header2.php";
 ?>
     <link rel="stylesheet" href="../../css/form.css">
@@ -94,7 +91,5 @@ if (isset($_SESSION['email'])) {
         </div>
     </section>
     <br>
-<?php
-}
-
+<?php 
 include "../../includes/footer.php";
