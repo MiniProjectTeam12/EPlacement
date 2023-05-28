@@ -1,7 +1,7 @@
 <?php
 if (session_status() !== PHP_SESSION_ACTIVE) {
   session_start();
-} 
+}
 if (isset($_SESSION['isstudent'])) {
   header("Location: ../dashboard/student.php");
 }
@@ -26,6 +26,10 @@ if (isset($_POST['login'])) {
     } else {
       if ($row = mysqli_fetch_assoc($result)) {
         if (password_verify($pass, $row['password'])) {
+          if ($row['status'] == "PENDING") {
+            echo "Your Account is Not Verified";
+            
+          }else{
           $login = true;
           $_SESSION['isstudent'] = "YES"; //using session
           $_SESSION['photos'] = $row['photos']; //using session
@@ -33,6 +37,7 @@ if (isset($_POST['login'])) {
           $_SESSION['email'] = $email; //using session
           $_SESSION['id'] = $row['id']; //using session   
           header("Location: ../dashboard/student.php");
+          }
         } else {
           echo "Wrong Password";
         }

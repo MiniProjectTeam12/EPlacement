@@ -5,6 +5,9 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 if (!isset($_SESSION['email'])) {
     header("Location: users/students/login.php");
 }
+if (isset($_SESSION['isalumni'])) {
+    header("Location: users/dashboard/alumni.php");
+}
 include "includes/connection.php";
 if (isset($_POST['submit'])) {
     $name = $_POST['name'];

@@ -33,11 +33,9 @@
               if (session_status() !== PHP_SESSION_ACTIVE) {
                 session_start();
               }
-
-              if (isset($_SESSION['isstudent'])) {
+ 
               ?>
-                <ul><a href="NOC-form.php">NOC Apply</a></ul>
-              <?php } ?>
+                <ul><a href="NOC-form.php">NOC Apply</a></ul> 
               <ul><a href="https://drive.google.com/file/d/15CY83lWnHaGVrk8RpDufH_iYzoJfI-ME/view?usp=share_link " target="_blank">Placement Policies</a></ul>
             </div>
           </li>
@@ -51,8 +49,21 @@
           </li>
           <li><a href="JavaScript:void(0)">Co-ordinator <i class="fas fa-caret-down"></i></a>
             <div class="dropdown_menu">
-              <ul><a href="users/coordinator/coordinator.php"><i class="fa-solid fa-right-to-bracket"></i>&nbspCo-ordinator Login</a></ul>
-              <ul><a href="users/coordinator/searchstudents.php"><i class="fa-solid fa-magnifying-glass"></i>&nbspSearch Students</a></ul>
+            <?php
+                    if (session_status() !== PHP_SESSION_ACTIVE) {
+                        session_start();
+                    }
+
+                    if (isset($_SESSION['iscoordinator'])) {
+                    ?>
+                        <ul><a href="users/coordinator/coordinator.php"><i class="fa-solid fa-right-to-bracket"></i>&nbsp Dashboard</a></ul>
+                    <?php
+                    } else {
+                    ?>
+                        <ul><a href="users/coordinator/coordinator.php"><i class="fa-solid fa-right-to-bracket"></i>&nbsp Co-ordinator Login</a></ul>
+                    <?php
+                    } ?>  
+            <ul><a href="users/coordinator/searchstudents.php"><i class="fa-solid fa-magnifying-glass"></i>&nbsp Verify Students</a></ul>
 
             </div>
           </li>

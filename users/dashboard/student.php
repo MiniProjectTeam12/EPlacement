@@ -37,11 +37,7 @@ $row = mysqli_fetch_assoc($query);
                 <h1 style="color:red">You have not applied for NOC</h1><a href="../../NOC-form.php" class="btn">Apply</a>
             </div>
         <?php
-            include "../../includes/footer.php";
-
-            return;
-        }
-        if ($nocdata['email'] == $row['email']) {
+        } else if ($nocdata['email'] == $row['email']) {
         ?>
             <div class="flex_arnd basic_mrgn" style="border:1px solid blue;padding:1rem">
                 <?php
@@ -52,27 +48,30 @@ $row = mysqli_fetch_assoc($query);
                 } else {
                 ?>
                     <h1 style="color:green">Your NOC has been sent to email</h1> <span style="color:green"><?php echo $nocdata['status']; ?></span>
-                <?php
+            <?php
                 }
-                ?>
+            }
+            ?>
             </div>
+            <div class="viewinternships">
+                <h1 align="center">View Open Internships</h1>
+                <hr>
+                <?php
+                $internshipsdata = "SELECT * from `internships` ORDER BY id DESC";
+                $internshipsquery = mysqli_query($conn, $internshipsdata);
+                while ($indata = mysqli_fetch_assoc($internshipsquery)) {
+                    $inurl = $indata['pdf'];
+                ?>
+                    <h3 style="text-transform:capitalize" class="basic_mrgn">
+                        <a href="<?php echo $inurl; ?>">
+                            <?php echo $indata['title']; ?></a><span style="color:red;font-size:0.7rem"><?php echo " On " . $indata['postdate']; ?></span>
+                    </h3>
+                <?php } ?>
+            </div>
+            <?php
+            ?>
+            
     </div>
 
-    <div class="viewinternships">
-        <h1 align="center">View Open Internships</h1>
-        <hr>
-        <?php
-            $internshipsdata = "SELECT * from `internships` ORDER BY id DESC";
-            $internshipsquery = mysqli_query($conn, $internshipsdata);
-            while ($indata = mysqli_fetch_assoc($internshipsquery)) {
-                $inurl = $indata['pdf'];
-        ?>
-            <h3 align="center">
-                <a href="<?php echo $inurl; ?>">
-                    <?php echo $indata['title']; ?></a>
-            </h3>
-        <?php } ?>
-    </div>
-<?php
-        }
-        include "../../includes/footer.php";
+    <?php
+    include "../../includes/footer.php";

@@ -2,6 +2,9 @@
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
+if (!isset($_SESSION['iscoordinator'])) {
+    header("Location: coordinator.php");
+}
 include "../../includes/connection.php";
 
 
@@ -29,6 +32,8 @@ include "../../includes/header2.php";
                 <th>Semester</th>
                 <th>Email</th>
                 <th>mobile</th>
+                <th>Status</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -58,10 +63,23 @@ include "../../includes/header2.php";
                         <a href="mailto:<?php echo $row['email']; ?>"><?php echo $row['email']; ?></a>
                     </td> 
                     <td><?php echo $row['mobile']; ?></td>
+                    <?php
+                            if ($row['status'] == "PENDING") {
+                            ?>
+                                <td style="color:red"><?php echo $row['status']; ?></td>
+                            <?php
+                            } else {
+                            ?>
+                                <td style="color:green"><?php echo $row['status']; ?></td>
+                            <?php
+                            }
+                            ?>
+                            <td><a href="verifystudent.php?id=<?php echo $row['id']; ?>" class="btn">Change Status</a> </td>
+                        </tr>
+                    <?php
+                    };
+                    ?>
                 </tr>
-            <?php
-            };
-            ?>
         </tbody>
     </table>
 
