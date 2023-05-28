@@ -74,7 +74,7 @@ include "includes/connection.php";
                 <div id="comments">
                     <form method="post">
                         <div class="comment-input">
-                            <input type="text" name="replycontent" placeholder="Add a Comment">
+                            <input type="text" name="replycontent" placeholder="Add a Comment" required>
                         </div>
                         <div class="comment-button">
                             <input type="submit" value="Reply" class="btn" name="postreply">

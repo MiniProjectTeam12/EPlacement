@@ -74,9 +74,8 @@ $row = mysqli_fetch_assoc($query);
         </button>
         <button class="btn" type="submit" id="submit" name="uploadnotice">Upload</button>
 
-    </form>
-<hr>
-<h2 align="center" style="color:green">Post Internships</h2>
+    </form> 
+<h2 align="center" style="color:green;margin-top:1rem;">Post Internships</h2>
     <form class="upload" method="post" enctype="multipart/form-data" class="flex">
         <input type="text" name="internship" placeholder="Give a title" style="margin-bottom:1vh">
         <button type="button" class="btn-warning">
@@ -107,7 +106,7 @@ $row = mysqli_fetch_assoc($query);
                         <th>Email</th>
                         <th>Mobile</th>
                         <th>Semester</th>
-                        <th>Roll</th>
+                        <th>Roll</th> 
                         <th>Branch</th>
                         <th>Industry</th>
                         <th>Date</th>

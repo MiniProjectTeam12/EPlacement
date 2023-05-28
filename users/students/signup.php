@@ -15,6 +15,7 @@ if (isset($_POST['submit'])) {
     $mobile = $_POST['mobile'];
     $branch = $_POST['branch'];
     $semester = $_POST['semester'];
+    $registration = $_POST['registration'];
 
     $img = $_FILES['pic'];
     $fname = $img['name'];
@@ -28,7 +29,7 @@ if (isset($_POST['submit'])) {
             $df = '../../assets/images/profilePics/' . $fname;
             move_uploaded_file($fpath, $df);
         }
-        $insert = "INSERT INTO `signup`(`name`,`password`,`email`,`mobile`,`branch`,`sem`,`photos`) VALUES ('$name','$spass','$email','$mobile','$branch','$semester','$df')";
+        $insert = "INSERT INTO `signup`(`name`,`password`,`email`,`mobile`,`branch`,`sem`,`registration`,`photos`) VALUES ('$name','$spass','$email','$mobile','$branch','$semester',$registration,'$df')";
         $query = mysqli_query($conn, $insert) or die();
         if ($query) {
             // $_SESSION['photos'] = $df; //using session

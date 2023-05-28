@@ -30,6 +30,7 @@ include "../../includes/header2.php";
                 <th>Name</th>
                 <th>Branch</th>
                 <th>Semester</th>
+                <th>Registration</th>
                 <th>Email</th>
                 <th>mobile</th>
                 <th>Status</th>
@@ -59,6 +60,7 @@ include "../../includes/header2.php";
                     <td style="text-transform:capitalize;"><?php echo $row['name']; ?></td>
                     <td><?php echo $row['branch']; ?></td>
                     <td><?php echo $row['sem']; ?></td>
+                    <td><?php echo $row['registration']; ?></td>
                     <td>
                         <a href="mailto:<?php echo $row['email']; ?>"><?php echo $row['email']; ?></a>
                     </td> 

@@ -60,10 +60,8 @@ $row = mysqli_fetch_assoc($query);
         </button>
         <button class="btn" type="submit" id="submit" name="uploadinternship">Upload</button>
 
-    </form>
-<div align="center" style="margin-top: 5rem;">
-    <h2><a href="../../forum.php">Go to Forum</a></h2>
-</div>
+    </form> 
+    <h2 align="center" class="basic_mrgn" style="border:1px solid blue;padding:1rem;background:yellow"><a href="../../forum.php">Go to Forum</a></h2> 
 
     <?php
     include "../../includes/footer.php";
