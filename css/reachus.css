@@ -1,0 +1,10 @@
+.bus {
+  width: 41%;
+  height: 30%;
+}
+
+.by-bus {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

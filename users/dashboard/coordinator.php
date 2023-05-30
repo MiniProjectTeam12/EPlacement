@@ -27,7 +27,7 @@ if (isset($_POST['uploadinternship'])) {
     $insert = "INSERT INTO `internships`(`title`,`postdate`,`pdf`) VALUES ('$title','$postdate','$df')";
     $query = mysqli_query($conn, $insert) or die();
     if ($query) {
-        // header("Refresh: 0");
+        echo "<div id='popup-message' style='display: none; position: fixed; top: 20%; right: 0; transform: translateX(100%); background: #000;color:green; padding: 20px; border: 1px solid #ccc; z-index: 9999;'>Uploaded Successfully</div>";
     }
 }
 if (isset($_POST['uploadnotice'])) {
@@ -49,7 +49,7 @@ if (isset($_POST['uploadnotice'])) {
     $insert = "INSERT INTO `notifications`(`title`,`postdate`,`pdf`) VALUES ('$title','$postdate','$df')";
     $query = mysqli_query($conn, $insert) or die();
     if ($query) {
-        // header("Refresh: 0");
+        echo "<div id='popup-message' style='display: none; position: fixed; top: 20%; right: 0; transform: translateX(100%); background: #000;color:green; padding: 20px; border: 1px solid #ccc; z-index: 9999;'>Uploaded Successfully</div>";
     }
 }
 

@@ -21,8 +21,9 @@ if (isset($_POST['login'])) {
 
         $search = "SELECT * FROM coordinator WHERE email='$email' ";
         $result = mysqli_query($conn, $search);
-        if (mysqli_num_rows($result) == 0) {
-            echo "No account exist";
+        if (mysqli_num_rows($result) == 0) { 
+            echo "<div id='popup-message' style='display: none; position: fixed; top: 20%; right: 0; transform: translateX(100%); background: #fff;color:red; padding: 20px; border: 1px solid #ccc; z-index: 9999;'>No Account Exist</div>";
+
         } else {
             if ($row = mysqli_fetch_assoc($result)) {
                 $login = true;
@@ -93,4 +94,4 @@ include "../../includes/header2.php";
 </section>
 <br>
 <?php
-include "../../includes/footer.php";
+include "../../includes/footer2.php";

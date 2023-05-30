@@ -5,7 +5,6 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 if (isset($_SESSION['email'])) {
     header("Location: ../dashboard/student.php");
 }
-include "../../includes/header2.php";
 if (isset($_POST['submit'])) {
     include "../../includes/connection.php";
     $name = $_POST['name'];
@@ -22,24 +21,46 @@ if (isset($_POST['submit'])) {
     $fpath = $img['tmp_name'];
     $ferror = $img['error'];
 
-    if (!empty($name) and !empty($password)) {
-        if ($ferror != 0) {
+    // ...
+
+if (!empty($name) && !empty($password)) {
+    // Escape the values
+    $name = mysqli_real_escape_string($conn, $name);
+    $spass = mysqli_real_escape_string($conn, $spass);
+    $email = mysqli_real_escape_string($conn, $email);
+    $mobile = mysqli_real_escape_string($conn, $mobile);
+    $branch = mysqli_real_escape_string($conn, $branch);
+    $semester = mysqli_real_escape_string($conn, $semester);
+    // $registration = mysqli_real_escape_string($conn, $registration);
+     $img = $_FILES['pic'];
+    $fname = $img['name'];
+    $fpath = $img['tmp_name'];
+    $ferror = $img['error'];
+     if ($ferror != 0) {
             $df = "../../assets/images/profilePics/default.svg";
         } else {
             $df = '../../assets/images/profilePics/' . $fname;
             move_uploaded_file($fpath, $df);
         }
-        $insert = "INSERT INTO `signup`(`name`,`password`,`email`,`mobile`,`branch`,`sem`,`registration`,`photos`) VALUES ('$name','$spass','$email','$mobile','$branch','$semester',$registration,'$df')";
-        $query = mysqli_query($conn, $insert) or die();
-        if ($query) {
-            // $_SESSION['photos'] = $df; //using session
-            // $_SESSION['name'] = $_POST['name']; //using session
-            // $_SESSION['email'] = $email; //using session  
-            header("Location: login.php");
-        }
+
+    // Create the SQL query with escaped values
+    $insert = "INSERT INTO `signup`(`name`, `password`, `email`, `mobile`, `branch`, `sem`, `registration`, `photos`) VALUES ('$name','$spass','$email','$mobile','$branch','$semester',$registration,'$df')";
+
+    // Execute the query
+    $query = mysqli_query($conn, $insert);
+    if ($query) {
+        header("Location: login.php");
+        exit; // Make sure to exit after the redirect
+    } else {
+        echo mysqli_error($conn);
     }
+} 
+
 }
+include "../../includes/header2.php";
+
 ?>
+
 <link rel="stylesheet" href="../../css/form.css">
 <br><br><br><br>
 <!-- Everything must be done under section class, add class or id  -->
@@ -99,7 +120,11 @@ if (isset($_POST['submit'])) {
                         </select>
                         <div id="semester-error" class="error"></div>
                     </div>
-
+                    <div class="input-control" id="pass">
+                        <label>Enter Registration</label>
+                        <input type="text" name="registration" id="registration" required>
+                        <div id="registration-error" class="error"></div>
+                    </div>
                     <div class="upload">
                         <button type="button" class="btn-warning">
                             <i class="fa fa-upload"></i> Upload Photo
@@ -122,4 +147,4 @@ if (isset($_POST['submit'])) {
 <br>
 
 <?php
-include "../../includes/footer.php";
+include "../../includes/footer2.php";

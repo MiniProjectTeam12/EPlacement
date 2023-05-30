@@ -22,12 +22,12 @@ if (isset($_POST['login'])) {
     $search = "SELECT * FROM signup WHERE email='$email' ";
     $result = mysqli_query($conn, $search);
     if (mysqli_num_rows($result) == 0) {
-      echo "No account exist";
+      echo "<div id='popup-message' style='display: none; position: fixed; top: 20%; right: 0; transform: translateX(100%); background: #fff;color:red; padding: 20px; border: 1px solid #ccc; z-index: 9999;'>No Account Exist</div>";
     } else {
       if ($row = mysqli_fetch_assoc($result)) {
         if (password_verify($pass, $row['password'])) {
-          if ($row['status'] == "PENDING") {
-            echo "Your Account is Not Verified";
+          if ($row['status'] == "PENDING") { 
+             echo "<div id='popup-message' style='display: none; position: fixed; top: 20%; right: 0; transform: translateX(100%); background: #fff;color:red; padding: 20px; border: 1px solid #ccc; z-index: 9999;'>Your Account is Not Verified</div>";
             
           }else{
           $login = true;
@@ -39,12 +39,13 @@ if (isset($_POST['login'])) {
           header("Location: ../dashboard/student.php");
           }
         } else {
-          echo "Wrong Password";
+             echo "<div id='popup-message' style='display: none; position: fixed; top: 20%; right: 0; transform: translateX(100%); background: #fff;color:red; padding: 20px; border: 1px solid #ccc; z-index: 9999;'>Wrong Password</div>"; 
         }
       }
     }
   } else {
-    echo "Empty Info";
+    
+     echo "<div id='popup-message' style='display: none; position: fixed; top: 20%; right: 0; transform: translateX(100%); background: #fff;color:red; padding: 20px; border: 1px solid #ccc; z-index: 9999;'>Empty Info</div>";
   };
 };
 ?>
@@ -92,11 +93,11 @@ if (isset($_SESSION['email'])) {
     </div>
     <br>
     <br>
-    <div class="forgot-pass">
+    <!-- <div class="forgot-pass">
       <a href="forgot.php">
         <p>Forgot Password?</p>
       </a>
-    </div>
+    </div> -->
     <br>
     <br>
     <h4>Do not have an account?</h4><br>
@@ -107,4 +108,4 @@ if (isset($_SESSION['email'])) {
 <?php
 }
 
-include "../../includes/footer.php";
+include "../../includes/footer2.php";

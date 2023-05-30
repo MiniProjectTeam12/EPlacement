@@ -41,7 +41,8 @@ include "../../includes/header2.php";
                 $alumnisearched = "SELECT * FROM `alumni` WHERE name LIKE '%$alumni%'";
                 $query = mysqli_query($conn, $alumnisearched);
                 if (mysqli_num_rows($query) < 1) {
-                    echo "<h1 style='color:red'>Not Found</h1>";
+                    echo "<div id='popup-message' style='display: none; position: fixed; top: 10%; right: 0; transform: translateX(100%); background: #fff;color:red; padding: 20px; border: 1px solid #ccc; z-index: 9999;'>Not Found</div>";
+
                 }
             } else {
                 $data = "SELECT * from `alumni`";
@@ -83,4 +84,4 @@ include "../../includes/header2.php";
 //     }  
 // }
 
-include "../../includes/footer.php";
+include "../../includes/footer2.php";

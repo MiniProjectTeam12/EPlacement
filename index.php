@@ -42,14 +42,14 @@
           <li><a href="JavaScript:void(0)">For Recruiters <i class="fas fa-caret-down"></i></a>
             <div class="dropdown_menu">
               <ul><a href="placementrecord.php">Placement Record</a></ul>
-              <ul><a href="#reach_us">Reaching BVEC</a></ul>
-              <ul><a href="#">Facilities</a></ul>
+              <ul><a href="reachus.php">Reaching BVEC</a></ul>
+            <ul><a href="facilities.php">Facilities</a></ul>
               <ul><a href="https://drive.google.com/file/d/15CY83lWnHaGVrk8RpDufH_iYzoJfI-ME/view?usp=share_link " target="_blank">Placement Policies</a></ul>
             </div>
           </li>
           <li><a href="JavaScript:void(0)">Co-ordinator <i class="fas fa-caret-down"></i></a>
-            <div class="dropdown_menu">
-            <?php
+                <div class="dropdown_menu">
+                    <?php
                     if (session_status() !== PHP_SESSION_ACTIVE) {
                         session_start();
                     }
@@ -62,18 +62,23 @@
                     ?>
                         <ul><a href="users/coordinator/coordinator.php"><i class="fa-solid fa-right-to-bracket"></i>&nbsp Co-ordinator Login</a></ul>
                     <?php
-                    } ?>  
-            <ul><a href="users/coordinator/searchstudents.php"><i class="fa-solid fa-magnifying-glass"></i>&nbsp Verify Students</a></ul>
+                    } ?>
 
-            </div>
-          </li>
+                    <ul><a href="users/coordinator/searchstudents.php">Verify Students</a></ul>
+                </div>
+            </li>
           <li><a href="JavaScript:void(0)">Alumni <i class="fas fa-caret-down"></i></a>
             <div class="dropdown_menu">
               <ul><a href="users/alumni/login.php"><i class="fa-solid fa-right-to-bracket"></i>&nbsp Alumni Login</a></ul>
               <ul><a href="users/alumni/search.php"><i class="fa-solid fa-magnifying-glass"></i>&nbsp Alumni Search</a></ul>
             </div>
           </li>
-          <li><a href="JavaScript:void(0)">Contact Us</i></a>
+          <li><a href="JavaScript:void(0)">Contact<i class="fas fa-caret-down"></i></a>
+                <div class="dropdown_menu">
+                    <ul><a href="contact.php"><i class="fa-solid fa-right-to-bracket"></i>&nbsp T&P officer</a></ul>
+                    <ul><a href="coordinator-contact.php"><i class="fa-solid fa-magnifying-glass"></i>&nbsp coordinator</a></ul>
+                </div>
+            </li>
             <?php 
             if (isset($_SESSION['email']) && !isset($_SESSION['isalumni'])) {
               $string = $_SESSION['photos'];

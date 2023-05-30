@@ -5,6 +5,7 @@ include "includes/header.php";
 
 <br><br><br><br><br><br>
 <h1 align="center"><mark>Internships</mark></h1><br><br>
+  <marquee dir="rtl" style="color:red;background:yellow;font-size:1.4rem;margin:1.2rem;" scrollamount="20">To View the current opened internships go to dashboard page here only guidelines are given</marquee>
 <div class="social">
   <h2 align="center"><mark>Social Internships </mark></h2><br>
   <li class="guideline"><a href="https://drive.google.com/file/d/1w5pNmT5nP7qcf8nZD8RcW1NBA58_Qr0c/view?usp=share_link" target="_blank">Guidelines</i></a></li><br>

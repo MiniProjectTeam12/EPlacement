@@ -118,4 +118,4 @@ if (isset($_POST['submit'])) {
 <br>
 
 <?php
-include "../../includes/footer.php";
+include "../../includes/footer2.php";

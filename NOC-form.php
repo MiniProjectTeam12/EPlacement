@@ -8,6 +8,7 @@ if (!isset($_SESSION['email'])) {
 if (isset($_SESSION['isalumni'])) {
     header("Location: users/dashboard/alumni.php");
 }
+include "includes/header.php";
 include "includes/connection.php";
 if (isset($_POST['submit'])) {
     $name = $_POST['name'];
@@ -19,12 +20,13 @@ if (isset($_POST['submit'])) {
     $industry = $_POST['industry'];
     $applydate = date('Y-m-d H:i:s');
 
-    $q = "SELECT * FROM noc WHERE name = '$name' &&  email= '$email' &&  phoneno= '$phoneno' && semester ='$semester' && rollno='$rollno' && department='$department' && industry='$industry' ";
+    $q = "SELECT * FROM noc WHERE name = '$name' &&  email= '$email' ";
     $result = mysqli_query($conn, $q);
     $num = mysqli_num_rows($result);
 
     if ($num == 1) {
-        echo "You have already applied";
+        echo "<div id='popup-message' style='display: none; position: fixed; top: 50%; right: 0; transform: translateX(100%); background: #000;color:#fff; padding: 20px; border: 1px solid #ccc; z-index: 9999;'>You have already applied</div>";
+
     } else {
         $qy = "INSERT INTO noc(name,email,phoneno,semester,rollno,department,industry,applydate) VALUES('$name', '$email', '$phoneno', '$semester', '$rollno', '$department', '$industry','$applydate')";
         mysqli_query($conn, $qy);
@@ -32,11 +34,8 @@ if (isset($_POST['submit'])) {
         // Redirect to success page
         header("Location: users/dashboard/student.php");
     }
-}
-?>
+} 
 
-<?php
-include "includes/header.php";
 ?>
 <link rel="stylesheet" href="css/form.css">
 <br><br><br><br>
@@ -105,21 +104,15 @@ include "includes/header.php";
                         <input type="text" name="industry" required>
                         <div class="error"></div>
                     </div>
-                    <button class="btn-sign-up-NOC" type="submit" id="submit" name="submit">SUBMIT</button>
+                    <input class="btn-sign-up-NOC" type="submit" id="submit" name="submit" value="SUBMIT">
                 </div>
 
             </form>
             <br>
         </div>
     </div>
-</section>
-</section>
-<br>
-
-
-</html>
-
-
+</section> 
 <?php
-// include "includes/footer2.php";
+require "includes/footer.php";
 ?>
+

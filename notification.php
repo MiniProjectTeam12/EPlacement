@@ -5,7 +5,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 include "includes/connection.php";
 include "includes/header.php";
 
-$data = "SELECT * from `notifications`";
+$data = "SELECT * from `notifications` ORDER BY id DESC";
 $query = mysqli_query($conn, $data); 
 ?>
 <link rel="stylesheet" href="css/notification.css">

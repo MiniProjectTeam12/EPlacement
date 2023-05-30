@@ -1,2 +1,67 @@
+.main-div {
+    position: relative;
+  }
+.image-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    z-index: -1;
+  }
+  
+  .image-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Adjust the alpha value (0.5) to control the transparency */
+  }
+  
+  .header-img {
+    display: block;
+    width: 100%;
+    height: 300px; /* Adjust the maximum height as needed */
+    object-fit: cover; 
+  }
 
+  .tpo-pic {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 20%;
+    height: 100%; /* Adjust the width of the tpo-pic as needed */
+  }
+
+  h2 {
+    position: relative; /* Add relative positioning */
+    z-index: 2; /* Set a higher z-index to ensure it appears above the tpo-pic */
+    text-align: center;
+    margin-top: 13%;
+    font-size: 2rem;
+    font-weight: 100;
+    letter-spacing: 0.3rem;
+    line-height: 1.7em;
+    color: #242424;
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  }
+
+  p{
+    font-size: 1.1rem;
+    font-weight: 60;
+    opacity: 0.8;
+    letter-spacing: 0.1rem;
+  }
+
+  .madhurjya-pic{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 50%;
+    height: 110%; 
+  }
   

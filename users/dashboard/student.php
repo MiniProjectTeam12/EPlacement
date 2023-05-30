@@ -74,4 +74,4 @@ $row = mysqli_fetch_assoc($query);
     </div>
 
     <?php
-    include "../../includes/footer.php";
+    include "../../includes/footer2.php";

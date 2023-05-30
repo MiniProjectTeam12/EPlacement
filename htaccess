@@ -1,0 +1,18 @@
+#
+custom error page showing
+#
+ErrorDocument 403 /error_page/403.html
+ErrorDocument 404 /error_page/404.html
+ErrorDocument 500 /error_page/500.html
+
+#
+Access Denied of directory file 
+#
+Options -Indexes 
+
+#
+redirecting http to https
+#
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://bvecplacement.great-site.net [R,L]

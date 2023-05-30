@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="../../assets/images/bvec.jpg" type="image/x-icon">
     <title>BVEC Training and Placement</title>
 </head>
+<div id="show"><i class="fas fa-solid fa-bars basic_mrgn" id="s" onclick="show()"></i></div>
 
 <header class="">
     <nav id="navbar">
@@ -34,8 +35,8 @@
             <li><a href="JavaScript:void(0)">For Recruiters <i class="fas fa-caret-down"></i></a>
                 <div class="dropdown_menu">
                     <ul><a href="../../placementrecord.php">Placement Record</a></ul>
-                    <ul><a href="#reach_us">Reaching BVEC</a></ul>
-                    <ul><a href="#">Facilities</a></ul>
+                    <ul><a href="../../reachus.php">Reaching BVEC</a></ul>
+                    <ul><a href="../../facilities.php">Facilities</a></ul>
                     <ul><a href="https://drive.google.com/file/d/15CY83lWnHaGVrk8RpDufH_iYzoJfI-ME/view?usp=share_link " target="_blank">Placement Policies</a></ul>
                 </div>
             </li>
@@ -67,7 +68,12 @@
                     <ul><a href="../../users/alumni/search.php"><i class="fa-solid fa-magnifying-glass"></i>&nbsp Alumni Search</a></ul>
                 </div>
             </li>
-            <li><a href="JavaScript:void(0)">Contact Us</i></a>
+            <li><a href="JavaScript:void(0)">Contact<i class="fas fa-caret-down"></i></a>
+                <div class="dropdown_menu">
+                    <ul><a href="../../contact.php"><i class="fa-solid fa-right-to-bracket"></i>&nbsp T&P officer</a></ul>
+                    <ul><a href="../../coordinator-contact.php"><i class="fa-solid fa-magnifying-glass"></i>&nbsp coordinator</a></ul>
+                </div>
+            </li>
                 <?php
                 if (session_status() !== PHP_SESSION_ACTIVE) {
                     session_start();

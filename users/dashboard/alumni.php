@@ -26,7 +26,8 @@ if (isset($_POST['uploadinternship'])) {
     $insert = "INSERT INTO `internships`(`title`,`postdate`,`pdf`) VALUES ('$title','$postdate','$df')";
     $query = mysqli_query($conn, $insert) or die();
     if ($query) {
-        // header("Refresh: 0");
+         echo "<div id='popup-message' style='display: none; position: fixed; top: 20%; right: 0; transform: translateX(100%); background: #000;color:green; padding: 20px; border: 1px solid #ccc; z-index: 9999;'>Uploaded Successfully</div>";
+
     }
 }
 
@@ -64,4 +65,4 @@ $row = mysqli_fetch_assoc($query);
     <h2 align="center" class="basic_mrgn" style="border:1px solid blue;padding:1rem;background:yellow"><a href="../../forum.php">Go to Forum</a></h2> 
 
     <?php
-    include "../../includes/footer.php";
+    include "../../includes/footer2.php";
