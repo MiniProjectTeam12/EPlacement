@@ -24,7 +24,7 @@ if (!empty($name) && !empty($password)) {
     // Execute the query
     $query = mysqli_query($conn, $insert);
     if ($query) {
-        header("Location: ../dashboard/sdashboard.php");
+        header("Location: ../dashboard/student.php");
         exit; // Make sure to exit after the redirect
     } else {
         echo mysqli_error($conn);
