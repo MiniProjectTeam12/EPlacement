@@ -65,19 +65,23 @@ $row = mysqli_fetch_assoc($query);
 
 <div class="profile-info">
     <a class="btn basic_mrgn" href="../logout.php" >Logout</a>
-    <h2 align="center">Post Notifications</h2>
-    <form class="upload" method="post" enctype="multipart/form-data" class="flex">
-        <input type="text" name="title" placeholder="Give a title" style="margin-bottom:1vh">
+    <h2 align="center" style="color:green;margin-top:1rem;">Post Notifications</h2>
+    <div class=" basic_mrgn" style="width:500px;margin:0 auto" >
+    <form class="upload" method="post" enctype="multipart/form-data">
+        <input type="text" name="title" placeholder="Give a title" style="margin-bottom:1vh;">
         <button type="button" class="btn-warning">
             <i class="fa fa-upload"></i> Upload Notification
-            <input type="file" id="photo-upload" name="pic" enctype="multipart/form-data" accept="application/pdf">
+            <input type="file" id="photo-upload"  name="pic" enctype="multipart/form-data" accept="application/pdf">
         </button>
         <button class="btn" type="submit" id="submit" name="uploadnotice">Upload</button>
 
     </form> 
+</div>
 <h2 align="center" style="color:green;margin-top:1rem;">Post Internships</h2>
-    <form class="upload" method="post" enctype="multipart/form-data" class="flex">
-        <input type="text" name="internship" placeholder="Give a title" style="margin-bottom:1vh">
+<div class=" basic_mrgn" style="width:500px;margin:0 auto" >
+
+    <form class="upload" method="post" enctype="multipart/form-data" class="flex" style="flex-direction: column;">
+        <input type="text" name="internship" placeholder="Give a title" style="margin-bottom:1vh;">
         <button type="button" class="btn-warning">
             <i class="fa fa-upload"></i> Upload Internships
             <input type="file" id="photo-upload" name="internshippdf" enctype="multipart/form-data" accept="application/pdf">
@@ -85,7 +89,7 @@ $row = mysqli_fetch_assoc($query);
         <button class="btn" type="submit" id="submit" name="uploadinternship">Upload</button>
 
     </form>
-
+</div>
     <div class="nocstatus">
         <?php
         $noc = "SELECT * from `noc`";

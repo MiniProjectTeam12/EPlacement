@@ -1,3 +1,5 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+
 <?php
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
@@ -15,63 +17,81 @@ $query = mysqli_query($conn, $data);
 $row = mysqli_fetch_assoc($query);
 ?>
 <br><br><br><br><br>
-<div class="profile-info">
-    <div class="info flex_arnd">
-        <div class="flex ">
-            <img src="<?php echo $row['photos']; ?>" alt="" width="120px" class="round">
-            <h1>Hello, <span style="text-transform:uppercase;color:chocolate"><?php echo $name; ?></span></h1>
-            <h3><span style="color:blue;"><?php echo $row['branch']; ?></span>,<span style="color:rgb(17, 242, 43)"><?php echo $row['sem']; ?> SEM</span></h3>
+<div class="container">
+    <div class="row">
+        <div class="col text-center profilepic mt-3">
+            <img src="<?php echo $row['photos']; ?>" class="rounded-circle" width="100px" height="100px">
 
+            <div class="row mt-5 flex_btwn">
+
+                <div class="list-group col-md-4 col-7 m-auto text-center">
+                    <a href="JavaScript:void(0)" class="list-group-item list-group-item-action " id="user_name">
+                        <!-- Showing Username -->
+                        <?php
+                        if ($_SESSION == true) {
+                        ?>
+                            <h6>Hello, <span style="text-transform:uppercase;color:chocolate"><?php echo $name; ?></span></h6>
+
+                        <?php
+                        } else {
+                            session_destroy();
+                        }
+                        ?>
+
+                    </a>
+                    <a href="../students/edit_account.php" class="list-group-item list-group-item-action" id='edit_account'>Edit Account</a>
+                    <a href="../../NOC-form.php" class="list-group-item list-group-item-action  " id='nocapply'>Apply for NOC</a>
+                    <a href="JavaScript:void(0)" class="list-group-item list-group-item-action " id='viewnocstatus'>View NOC Status</a>
+                    <a href="JavaScript:void(0)" class="list-group-item list-group-item-action " id='viewinternships'>View Open internships</a>
+                </div>
+               
+            </div>
         </div>
-        <a class="btn" href="../logout.php">Logout</a>
+        <div class="col text-center  m-auto">
+            <a class="btn" href="../logout.php">Logout</a>
+             <!-- <div> -->
+                    <div id="main_content" class="mt-5">
+                        <p style="text-align:justify;">Hello everyone,
+
+                            My name is <span style="text-transform:uppercase;color:chocolate"><?php echo $name; ?></span>
+                            and I am currently pursuing my Bachelor of Technology (B.Tech) in Computer Science and Engineering (CSE) 
+                            from BVEC. I am in my 6th semester, and I am excited to share a brief introduction about myself. 
+                            Ever since my childhood, I have been fascinated by technology and computers. 
+                            This fascination led me to choose a career in the field of Computer Science. 
+                            I believe that CSE offers endless possibilities to innovate and create solutions that can 
+                            positively impact the world around us. During my academic journey, I have gained a strong 
+                            foundation in programming languages such as Java, C++, and Python. </p>
+                    </div>
+                <!-- </div> -->
+        </div>
     </div>
 
-    <div class="nocstatus">
-        <?php
-        $noc = "SELECT * from `noc` where email='$email'";
-        $nocquery = mysqli_query($conn, $noc);
-        $nocdata = mysqli_fetch_assoc($nocquery);
-        if ($nocdata == 0) {
-        ?>
-            <div class="flex_arnd basic_mrgn" style="border:1px solid blue;padding:1rem">
-                <h1 style="color:red">You have not applied for NOC</h1><a href="../../NOC-form.php" class="btn">Apply</a>
-            </div>
-        <?php
-        } else if ($nocdata['email'] == $row['email']) {
-        ?>
-            <div class="flex_arnd basic_mrgn" style="border:1px solid blue;padding:1rem">
-                <?php
-                if ($nocdata['status'] == "PENDING") {
-                ?>
-                    <h1 style="color:red">You have applied for NOC</h1> <span style="color:red"><?php echo $nocdata['status']; ?></span>
-                <?php
-                } else {
-                ?>
-                    <h1 style="color:green">Your NOC has been sent to email</h1> <span style="color:green"><?php echo $nocdata['status']; ?></span>
-            <?php
-                }
-            }
-            ?>
-            </div>
-            <h2 align="center" class="basic_mrgn" style="border:1px solid blue;padding:1rem;background:yellow"><a href="../../forum.php">Go to Forum</a></h2>
-            <div class="viewinternships" style="background:#0cf050;padding:0.4rem">
-                <h1 align="center">View Open Internships</h1> 
-                <?php
-                $internshipsdata = "SELECT * from `internships` ORDER BY id DESC";
-                $internshipsquery = mysqli_query($conn, $internshipsdata);
-                while ($indata = mysqli_fetch_assoc($internshipsquery)) {
-                    $inurl = $indata['pdf'];
-                ?>
-                    <h3 style="text-transform:capitalize;background:#000;padding:0.5rem" class="basic_mrgn">
-                        <a href="<?php echo $inurl; ?>" target="_blank" style="color:#fff">
-                            <?php echo $indata['title']; ?></a><span style="color:#e10cf0;font-size:0.7rem"><?php echo " On " . $indata['postdate']; ?></span>
-                    </h3>
-                <?php } ?>
-            </div>
-            <?php
-            ?>
-            
-    </div>
 
-    <?php
-    include "../../includes/footer2.php";
+
+
+
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../js/index.js" defer></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(() => {
+
+        // $("JavaScript:void(0)edit_account").click(() => {
+        //     $("JavaScript:void(0)main_content").load("../students/edit_account.php");
+        // });
+
+        $("#viewinternships").click(() => {
+            $("#main_content").load("viewinternships.php");
+        }); 
+        $("#viewnocstatus").click(() => {
+            $("#main_content").load("viewnocstatus.php");
+        }); 
+    })
+</script>
+<?php
+include "../../includes/footer2.php";

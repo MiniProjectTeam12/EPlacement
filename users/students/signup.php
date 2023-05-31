@@ -19,9 +19,7 @@ if (isset($_POST['submit'])) {
     $img = $_FILES['pic'];
     $fname = $img['name'];
     $fpath = $img['tmp_name'];
-    $ferror = $img['error'];
-
-    // ...
+    $ferror = $img['error']; 
 
 if (!empty($name) && !empty($password)) {
     // Escape the values

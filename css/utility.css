@@ -81,6 +81,23 @@ h1 {
     justify-content: space-between;
 }
 
+.user_info {
+    order: 1;
+    float: right;
+}
+#user_name {
+    text-transform: uppercase;
+    background: #000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content:center;   
+}
+.User_dashboard{
+    /* margin-top: 5%; */
+    width: 200px;
+}
+
 @media screen and (max-width:760px) {
     .hero {
         background-size: 100% 100%;

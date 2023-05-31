@@ -31,7 +31,7 @@ include "includes/connection.php";
     </div>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Create New Thread
+        Create New Post
     </button>
     <br><br>
     <div id="allPostStats">

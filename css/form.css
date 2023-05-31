@@ -513,3 +513,6 @@ input[type="checkbox"] {
 .dialog-buttons button#cancel-button:hover {
   background-color: #eee;
 }
+.editaccount{
+  width: 200px;
+}

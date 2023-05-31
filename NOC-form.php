@@ -2,13 +2,6 @@
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
-if (!isset($_SESSION['email'])) {
-    header("Location: users/students/login.php");
-}
-if (isset($_SESSION['isalumni'])) {
-    header("Location: users/dashboard/alumni.php");
-}
-include "includes/header.php";
 include "includes/connection.php";
 if (isset($_POST['submit'])) {
     $name = $_POST['name'];
@@ -26,7 +19,6 @@ if (isset($_POST['submit'])) {
 
     if ($num == 1) {
         echo "<div id='popup-message' style='display: none; position: fixed; top: 50%; right: 0; transform: translateX(100%); background: #000;color:#fff; padding: 20px; border: 1px solid #ccc; z-index: 9999;'>You have already applied</div>";
-
     } else {
         $qy = "INSERT INTO noc(name,email,phoneno,semester,rollno,department,industry,applydate) VALUES('$name', '$email', '$phoneno', '$semester', '$rollno', '$department', '$industry','$applydate')";
         mysqli_query($conn, $qy);
@@ -34,7 +26,15 @@ if (isset($_POST['submit'])) {
         // Redirect to success page
         header("Location: users/dashboard/student.php");
     }
-} 
+}
+if (!isset($_SESSION['email'])) {
+    header("Location: users/students/login.php");
+}
+if (isset($_SESSION['isalumni'])) {
+    header("Location: users/dashboard/alumni.php");
+}
+include "includes/header.php";
+
 
 ?>
 <link rel="stylesheet" href="css/form.css">
@@ -76,8 +76,8 @@ if (isset($_POST['submit'])) {
                     <div class="input-control" id="pass">
                         <label>Select Semester</label>
                         <select name="semester" id="semester" required>
-                            
-                            <option value="<?php echo $studentdata['sem'];?>"><?php echo $studentdata['sem'];?></option>
+
+                            <option value="<?php echo $studentdata['sem']; ?>"><?php echo $studentdata['sem']; ?></option>
                             <option value="1st">Semester 1</option>
                             <option value="2nd">Semester 2</option>
                             <option value="3rd">Semester 3</option>
@@ -111,8 +111,7 @@ if (isset($_POST['submit'])) {
             <br>
         </div>
     </div>
-</section> 
+</section>
 <?php
 require "includes/footer.php";
 ?>
-

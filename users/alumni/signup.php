@@ -2,10 +2,6 @@
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
-if (isset($_SESSION['email'])) {
-    header("Location: ../dashboard/alumni.php");
-}
-include "../../includes/header2.php";
 if (isset($_POST['submit'])) {
     include "../../includes/connection.php";
     $name = $_POST['name'];
@@ -39,6 +35,11 @@ if (isset($_POST['submit'])) {
         }
     }
 }
+if (isset($_SESSION['email'])) {
+    header("Location: ../dashboard/alumni.php");
+}
+include "../../includes/header2.php";
+
 ?>
 <link rel="stylesheet" href="../../css/form.css">
 <br><br><br><br>
